@@ -1,0 +1,146 @@
+/*
+	Must start with .theme- (UI theme names will render without the .theme- prefix)
+	Options are not required for a theme to work. I added them for the sake of example. For example, some themes have a border-radius, others do not.
+	if you add any options, make sure to add them to the tailwind.config.js file as well, see border-radius for example
+*/
+
+:root,
+/* default theme */
+.theme-light {
+	--color-background: #ffffff;
+	--color-gradient: #f0e6d2;
+	--color-text: #3a3a3a;
+	--color-accent: #2c3e50;  /* Darker blue-gray, less dominant */
+	--color-accent-alt: #d35400;  /* Deeper orange, complementing the image */
+	--color-shadow: #1b2838;
+	/* options */
+}
+.theme-dark {
+	--color-background: #1b2838;
+	--color-gradient: #2c3e50;  /* Adjusted to match new accent color */
+	--color-text: #f0e6d2;
+	--color-accent: #3498db;  /* Lighter version of our new accent color */
+	--color-accent-alt: #e67e22;  /* Adjusted to complement new accent */
+	--color-shadow: #0a1721;  /* Darker shadow for contrast */
+	/* options */
+	--border-radius: 0.4rem;
+}
+.theme-deep-sea {
+	--color-background: #1a3c3c;
+	--color-gradient: #0a1e1e;
+	--color-text: #a3e7dd;
+	--color-accent: #50fa7b;
+	--color-accent-alt: #0a9b83;
+	--color-shadow: #005f5f;
+	/* options */
+	--border-radius: 0.2rem;
+}
+.theme-generic {
+	--color-background: #f0f0f0;
+	--color-gradient: #d6eff8;
+	--color-text: #040910;
+	--color-accent: #d74247;
+	--color-accent-alt: #264899;
+	--color-shadow: #aacfd5;
+	/* options */
+
+}
+.theme-haunted {
+	--color-background: #000000;
+	--color-gradient: var(--color-background);
+	--color-text: #ffffff;
+	--color-accent: #7a1717;
+	--color-accent-alt: #000000;
+	--color-shadow: hsla(248, 30%, 24%, 0.747);
+	/* options */
+	--border-radius: 0.2rem;
+}
+.theme-invisible {
+	--color-background: #1e2723;
+	--color-gradient: #2a3c2f;
+	--color-text: #e6dcc1;
+	--color-accent: #7d5a3c;
+	--color-accent-alt: #b8a86a;
+	--color-shadow: #162019;
+	/* options */
+	--border-radius: 0.4rem;
+}
+.theme-leet {
+	--color-background: #0d0208;
+	--color-gradient: #001f00;
+	--color-text: #00ff41;
+	--color-accent: #08f7fe;
+	--color-accent-alt: #005f2c;
+	--color-shadow: #003b00;
+	/* options */
+
+}
+.theme-neon-bliss {
+	--color-background: #0d0221;
+	--color-gradient: var(--color-background);
+	--color-text: #08f7fe;
+	--color-accent: #00ff9f;
+	--color-accent-alt: #fe53bb;
+	--color-shadow: hsla(182, 99%, 51%, 0.3);
+	/* options */
+	--border-radius: 0.7rem;
+}
+.theme-old-couch {
+	--color-background: #1a110d;
+	--color-gradient: #3d2a20;
+	--color-text: #e6b785;
+	--color-accent: #ff7f00;
+	--color-accent-alt: #a85400;
+	--color-shadow: hsla(0, 0%, 0%, 0.6);
+	/* options */
+	--border-radius: 0.25rem;
+}
+.theme-peppermint {
+	--color-background: #ffffff;
+	--color-gradient: #f0f7f7;
+	--color-text: #2a2a2a;
+	--color-accent: #ff0000;
+	--color-accent-alt: #7fbfbf;
+	--color-shadow: hsla(0, 100%, 50%, 0.15);
+	/* options */
+	--border-radius: 0.8rem;
+}
+.theme-pop-punk {
+	--color-background: #1a1a1a;
+	--color-gradient: var(--color-background);
+	--color-text: #ffffff;
+	--color-accent: #ff1493;
+	--color-accent-alt: #1ab81a;
+	--color-shadow: hsla(328, 100%, 54%, 0.5);
+	/* options */
+	--border-radius: 0.5rem;
+}
+.theme-slime {
+	--color-background: #030901;
+	--color-gradient: #ed880c;
+	--color-text: #f8f1dd;
+	--color-accent: #cfd742;
+	--color-accent-alt: #e0cd91;
+	--color-shadow: var(--color-gradient);
+	/* options */
+	--border-radius: 0.4rem;
+}
+.theme-spring {
+	--color-background: #f5f3e8;
+	--color-gradient: #eae7d9;
+	--color-text: #4a5d28;
+	--color-accent: #d17844;
+	--color-accent-alt: #a85751;
+	--color-shadow: #b8cc94;
+	/* options */
+	--border-radius: 0.5rem;
+}
+.theme-syntax {
+	--color-background: #0f0e17;
+	--color-gradient: #2e2c3a;
+	--color-text: #fffffe;
+	--color-accent: #fed941;
+	--color-accent-alt: #133057;
+	--color-shadow: hsla(48, 99%, 63%, 0.3);
+	/* options */
+}

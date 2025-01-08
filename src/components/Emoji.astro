@@ -1,0 +1,27 @@
+---
+import type { AstroBuiltinAttributes } from "astro";
+
+type Emoji = string & {};
+
+export interface Props {
+  /**
+   * The emoji character to display
+   */
+  symbol: Emoji;
+  /**
+   * Accessible label for the emoji. If not provided,
+   * the emoji will be hidden from screen readers.
+   */
+  label?: string;
+  class?: string | AstroBuiltinAttributes["class:list"]
+}
+
+const { label, symbol, class: className } = Astro.props;
+---
+
+<span
+  class:list={className}
+  aria-label={label}
+  aria-hidden={label ? undefined : 'true'}
+  role="img"
+>{symbol}</span>
