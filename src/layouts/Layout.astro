@@ -1,22 +1,103 @@
-<!doctype html>
+---
+import type { AstroBuiltinAttributes } from 'astro';
+
+import { SITE, NAVIGATION } from "src/alkaline.config";
+
+import { ClientRouter } from "astro:transitions";
+
+import "@styles/global.css";
+
+import GoogleFonts from "@components/Astro/head/GoogleFonts.astro";
+import DynamicMetaTags from "@components/Astro/head/DynamicMetaTags.astro";
+import SocialMeta from "@components/Astro/head/SocialMeta.astro";
+import ResourceLinks from "@components/Astro/head/ResourceLinks.astro";
+import Nav from "@components/Astro/Nav.astro";
+import Title from "@components/Astro/Title.astro";
+import BackToTop from "@components/Astro/BackToTop.astro";
+import Footer from "@components/Astro/Footer.astro";
+
+export interface Props {
+	title?: string;
+	author?: string;
+	description?: string;
+	keywords?: string[];
+	ogImage?: string;
+	publishedTime?: string;
+	modifiedTime?: string;
+	canonicalUrl?: string;
+	logoSrc?: string;
+	faviconSrc?: string;
+	showTitleBackground?: boolean;
+	class?: string | AstroBuiltinAttributes['class:list'];}
+
+const {
+	title = SITE.title,
+	author = SITE.author,
+	description = SITE.description || SITE.title,
+	keywords = SITE.keywords,
+	ogImage = SITE.ogImage,
+	canonicalUrl = SITE.canonicalUrl,
+	logoSrc = SITE.logoSrc || null,
+	showTitleBackground = SITE.showTitleBackground || false,
+	faviconSrc = SITE.faviconSrc,
+	publishedTime = "",
+	modifiedTime = "",
+	class: className = "",
+} = Astro.props;
+
+const metaTags = [
+	{ name: "viewport", content: "width=device-width, initial-scale=1.0" },
+	{ name: "generator", content: "Astro" },
+	{ name: "sitemap", content: "/sitemap-index.xml" },
+	{
+		name: "robots",
+		content: `index, ${SITE.disableIndexing ? "noindex, nofollow" : "index, follow"}`,
+	},
+
+];
+const fonts = SITE.fonts || [];
+const options = {
+  "rounded-theme": true,
+}
+---
+
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<!-- todo: confirm all tags are set -->
+		<DynamicMetaTags metaTags={metaTags} />
+		<GoogleFonts fonts={fonts} />
+		<SocialMeta
+			title={title}
+			author={author}
+			image={ogImage}
+			description={description}
+			keywords={keywords}
+			canonicalURL={canonicalUrl}
+			faviconSrc={faviconSrc}
+			publishedTime={publishedTime}
+			modifiedTime={modifiedTime}
+		/>
+		<ClientRouter />
+		{/*<ResourceLinks />*/}
 	</head>
-	<body>
-		<slot />
+	<body class:list={[options, className]}>
+		<div class="flex flex-col min-h-screen">
+			<Title
+				title={title}
+				logoSrc={logoSrc ?? ""}
+				showTitleBackground={showTitleBackground}
+			/>
+			<Nav links={NAVIGATION} />
+			<main class="flex-grow">
+				<!-- content -->
+				<slot />
+			</main>
+			<Footer
+				author={SITE.author}
+				portfolio={SITE.socials.find((social) => social.platform === "web")
+					?.url}
+			/>
+		</div>
+		<BackToTop />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

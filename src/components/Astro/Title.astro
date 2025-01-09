@@ -1,0 +1,89 @@
+---
+/**
+ * @description Component for rendering page titles with optional logo and styling variants.
+ * @param {Props} props - Title configuration
+ * @example
+ * ```astro
+ * // Basic title
+ * <Title
+ *   title="Welcome to My Site"
+ *   showTitleBackground={false}
+ * />
+ *
+ * // Title with background styling
+ * <Title
+ *   title="About Us"
+ *   showTitleBackground={true}
+ * />
+ *
+ * // Title with logo
+ * <Title
+ *   title="Company Blog"
+ *   showTitleBackground={true}
+ *   logoSrc={import("../../assets/logo.png")}
+ * />
+ *
+ * // With custom class
+ * <Title
+ *   title="Contact"
+ *   showTitleBackground={false}
+ *   class="my-custom-class"
+ * />
+ * ```
+ * @note
+ * - Supports two visual variants controlled by showTitleBackground
+ * - Optional logo display with proper image optimization
+ * - Responsive layout with flexible width
+ * - Customizable through class prop
+ */
+
+import type { AstroBuiltinAttributes } from 'astro';
+
+import { Image } from "astro:assets";
+
+export interface Props {
+	/** Main title text */
+	title: string;
+	/** Controls the title's visual style and background */
+	showTitleBackground: boolean;
+	/** Optional path to logo image */
+	logoSrc?: string;
+	/** Optional CSS classes */
+	class?: string | AstroBuiltinAttributes['class:list'];
+}
+
+const { title, showTitleBackground, class: className, logoSrc } = Astro.props;
+---
+
+<div
+	class:list={[
+		"flex border-b-4",
+		{
+			"border-theme-secondary": showTitleBackground,
+			"border-theme-accent": !showTitleBackground,
+		},
+	]}
+>
+	{
+		logoSrc && (
+			<span class="flex logo-wrapper items-center p-4 bg-theme-accent">
+				<span class="flex items-center border-2 border-theme-secondary rounded-full">
+					<Image src={logoSrc} alt="Logo" width={64} height={64} class="rounded-full" />
+				</span>
+			</span>
+		)
+	}
+	<h1
+		class:list={[
+			"py-2 m-0 w-full",
+			{
+				"is-title-alt leading-none pl-4 py-5": showTitleBackground,
+				"is-title p-0 pl-2": !showTitleBackground,
+				"pl-4": logoSrc,
+			},
+			className,
+		]}
+	>
+		{title}
+	</h1>
+</div>

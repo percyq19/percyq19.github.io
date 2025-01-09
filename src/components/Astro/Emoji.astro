@@ -1,0 +1,54 @@
+---
+import type { AstroBuiltinAttributes } from "astro";
+
+/**
+ * @description Component for rendering accessible emoji characters.
+ * @param {EmojiProps} props - Emoji configuration
+ * @example
+ * ```astro
+ * // Accessible emoji with label
+ * <Emoji
+ *   symbol="⭐"
+ *   label="star rating"
+ * />
+ *
+ * // Decorative emoji (hidden from screen readers)
+ * <Emoji
+ *   symbol="✨"
+ * />
+ *
+ * // With custom styling
+ * <Emoji
+ *   symbol="👍"
+ *   label="thumbs up"
+ *   class="text-2xl"
+ * />
+ * ```
+ * @note
+ * - Automatically handles accessibility attributes
+ * - Hides decorative emojis from screen readers
+ * - Supports ARIA labels for meaningful emojis
+ * - Accepts custom styling via class prop
+ */
+
+export interface Props {
+  /** The emoji character to display */
+  symbol: string & {};
+  /**
+   * Accessible label for the emoji. If not provided,
+   * the emoji will be hidden from screen readers.
+   */
+  label?: string;
+  /** Optional CSS classes */
+  class?: string | AstroBuiltinAttributes["class:list"]
+}
+
+const { label, symbol, class: className } = Astro.props;
+---
+
+<span
+  class:list={className}
+  aria-label={label}
+  aria-hidden={label ? undefined : 'true'}
+  role="img"
+>{symbol}</span>
