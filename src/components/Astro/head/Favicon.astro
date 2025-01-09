@@ -1,0 +1,55 @@
+---
+/**
+ * @description Component for managing favicon and touch icons across different devices and browsers.
+ * @param {FaviconProps} props - Favicon configuration
+ * @example
+ * ```astro
+ * // Vector favicon (SVG)
+ * <Favicon
+ *   url="/favicon.svg"
+ *   isVector={true}
+ * />
+ *
+ * // Raster favicon (PNG)
+ * <Favicon
+ *   url="/favicon.png"
+ *   isVector={false}
+ * />
+ * ```
+ * @note
+ * - Automatically handles multiple sizes for PNG favicons
+ * - Supports both vector (SVG) and raster (PNG) formats
+ * - Includes Apple touch icon support
+ * - Default favicon is /favicon.svg
+ */
+
+export interface Props {
+    url?: string;
+    isVector?: boolean;
+}
+
+// Destructure props with default values
+const { url = "/favicon.svg", isVector = false } = Astro.props;
+---
+
+{/* Render the favicon links */}
+
+<link rel="icon" type="image/svg+xml" href={url} />
+
+{/* Svg will always be vector, but this allows us to force vector for other files if needed */}
+
+{(isVector || url.endsWith('.svg')) && (
+    <>
+        <link rel="apple-touch-icon" sizes="180x180" href={url} />
+        <link rel="icon" type="image/png" sizes="32x32" href={url} />
+        <link rel="icon" type="image/png" sizes="16x16" href={url} />
+    </>
+)}
+
+{!isVector && !url.endsWith('.svg') && (
+    <>
+        <link rel="icon" type="image/png" sizes="192x192" href={url} />
+        <link rel="icon" type="image/png" sizes="96x96" href={url} />
+        <link rel="icon" type="image/png" sizes="48x48" href={url} />
+    </>
+)}

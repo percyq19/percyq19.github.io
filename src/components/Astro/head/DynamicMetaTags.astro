@@ -1,0 +1,38 @@
+---
+/**
+ * @description Component for dynamically generating meta tags.
+ * @param {MetaTag[]} metaTags - Array of meta tag configurations
+ * @example
+ * ```astro
+ * <DynamicMetaTags
+ *   metaTags={[
+ *     { name: 'description', content: 'Page description' },
+ *     { property: 'fb:app_id', content: '123456789' },
+ *     { name: 'google-site-verification', content: 'verification_code' }
+ *   ]}
+ * />
+ * ```
+ * @note
+ * - Supports both name and property attributes
+ * - Commonly used for verification tags and social media properties
+ * - Useful for dynamic SEO management
+ */
+
+export interface MetaTag {
+	name?: string;
+	property?: string;
+	content: string;
+}
+
+export interface Props {
+	metaTags: MetaTag[];
+}
+
+const { metaTags = [] } = Astro.props;
+---
+
+{
+	metaTags?.map((tag) => (
+		<meta name={tag.name} property={tag.property} content={tag.content} />
+	))
+}
