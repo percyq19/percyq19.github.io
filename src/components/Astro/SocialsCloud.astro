@@ -54,7 +54,7 @@ export interface Props {
 	socials: Social[];
 	size?: number;
 	fill?: boolean;
-	class?: string | AstroBuiltinAttributes['class:list'];
+	class?: string | undefined;
 }
 
 const { socials, size, fill = false, class: className } = Astro.props;

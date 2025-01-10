@@ -14,7 +14,7 @@
  * <PageHeader
  *   heading="About Us"
  *   description="Meet our team"
- *   image={teamImage}
+ *   image={"/assets/teamImage.png"}
  *   imageAlt="Team photo"
  * />
  *
@@ -57,8 +57,8 @@ export interface Props {
 	heading: string;
 	/** Optional subheading or description text */
 	description?: string;
-	/** Optional image to display */
-	image?: ImageMetadata;
+	/** Optional image src to display */
+	image?: string;
 	/** Alt text for the image */
 	imageAlt?: string;
 	/** Controls image animation (default: true) */

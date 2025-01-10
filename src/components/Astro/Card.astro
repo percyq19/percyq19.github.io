@@ -44,7 +44,7 @@
  * - Customizable via props
  */
 
-import type { AstroBuiltinAttributes } from 'astro';
+
 import { Icon } from 'astro-icon/components';
 
 export interface Props {
@@ -59,7 +59,7 @@ export interface Props {
 	/** Shadow size variant */
 	shadowSize?: "sm" | "md" | "lg" | "none" | null;
 	/** Additional CSS classes */
-	class?: string | AstroBuiltinAttributes['class:list'];
+	class?: string | undefined;
 }
 
 const {

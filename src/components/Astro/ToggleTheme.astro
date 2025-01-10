@@ -17,12 +17,12 @@
  * - Handles view transitions
  */
 
-import type { AstroBuiltinAttributes } from 'astro';
+
 import { Icon } from "astro-icon/components";
 import { themeNames } from "@utils/themeNames";
 
 export interface Props {
-	class?: string | AstroBuiltinAttributes['class:list'];
+	class?: string | undefined;
 }
 
 const { class: className } = Astro.props;

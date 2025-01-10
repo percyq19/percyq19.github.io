@@ -36,26 +36,26 @@
  * - Responsive padding and margins
  */
 
-import type { AstroBuiltinAttributes } from "astro";
+
 import Tag from "@components/Astro/utils/Tag.astro";
 
-export interface TagCloud {
+export interface Props {
 	tags: {
 		name: string;
 		count?: number | string | undefined
 	}[];
-	class?: string | AstroBuiltinAttributes["class:list"];
+	class?: string | undefined;
 }
 
-const { tags = [], customClass } = Astro.props;
+const { tags = [], class: className } = Astro.props;
 ---
 
 <div
 	class:list={[
 		"inline-flex flex-wrap justify-start items-center px-0 mb-0.5",
-		customClass,
+		className,
 	]}
 >
-	{tags.map((tag: any) => <Tag tag={tag.name} count={tag.count} size="lg" />)}
+	{tags.map((tag) => <Tag tag={tag.name} count={tag.count} size="lg" />)}
 </div>
 <hr class="my-5 text-theme-accent" />

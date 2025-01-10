@@ -1,10 +1,46 @@
 ---
+import Layout from "@layouts/Layout.astro";
+import PageHeader from "@components/Astro/PageHeader.astro";
+import Card from "@components/Astro/Card.astro";
 
-import Layout from '../layouts/Layout.astro';
-import Title from '../components/Astro/Title.astro';
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import coverImage from "@assets/alk-cover-2.webp";
 ---
 
 <Layout>
+	<PageHeader
+		heading="A Neutral Base For Your Next Creation."
+		description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. loorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+		image={coverImage}
+		imageAlt="Sample image"
+		backgroundPattern="M20.3 29.35l-3.1-3.2-3.55 3.55-3.55-3.55 3.55-3.55 3.55 3.55L31.35 12 27.8 8.45l-3.55 3.55 3.55 3.55L30.9 18.65l-3.35 3.6L20.75 15.55l3.55-3.55L17.2 4.95 20.7 1.3l3.55 3.6L20.75 8.45 17.2 12l-7.45-7.45L13.35.9l3.85 4.05-3.55 3.55-3.55 3.55 3.55 3.55-3.55 3.55-3.55-3.55-3.9-3.9 3.55-3.55L13.65 15.55l-3.55-3.55L3.05 19.1l3.55 3.55L13.65 15.55l-3.55 3.55 3.55 3.55 3.55-3.55L23.75 25.8l.05.05-3.5 3.5"
+		patternOpacity={0.25}
+
+	/>
+	<section
+		class="flex flex-no-wrap flex-col gap-6 justify-center mx-0 md:flex-row lg:flex-wrap lg:justify-around opacity-0 transform scale-90 build-in"
+	>
+		<Card
+			title="Feature."
+			description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+			alt
+			shadowSize="md"
+		/>
+		<Card
+			title="Feature."
+			description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+			shadowSize="md"
+		/>
+		<Card
+			title="Feature."
+			description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+			shadowSize="md"
+			alt
+		/>
+	</section>
 </Layout>
+
+<style>
+	.build-in {
+		animation-delay: .5s;
+	}
+</style>

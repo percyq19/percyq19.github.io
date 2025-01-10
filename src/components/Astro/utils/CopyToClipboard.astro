@@ -39,7 +39,7 @@
  * - Transition animations
  */
 
-import type { AstroBuiltinAttributes } from 'astro';
+import type { JSX } from 'astro/jsx-runtime';
 
 export interface Props {
 	/** Text content to be copied to clipboard */
@@ -51,7 +51,7 @@ export interface Props {
 	/** Accessibility label for the button (default: "Copy to clipboard") */
 	ariaLabel?: string;
 	/** Additional CSS classes */
-	class?: string | AstroBuiltinAttributes['class:list'];
+	class?: string | undefined;
 }
 
 const {

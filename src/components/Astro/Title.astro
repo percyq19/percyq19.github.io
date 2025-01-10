@@ -37,7 +37,7 @@
  * - Customizable through class prop
  */
 
-import type { AstroBuiltinAttributes } from 'astro';
+
 
 import { Image } from "astro:assets";
 
@@ -49,7 +49,7 @@ export interface Props {
 	/** Optional path to logo image */
 	logoSrc?: string;
 	/** Optional CSS classes */
-	class?: string | AstroBuiltinAttributes['class:list'];
+	class?: string | undefined;
 }
 
 const { title, showTitleBackground, class: className, logoSrc } = Astro.props;

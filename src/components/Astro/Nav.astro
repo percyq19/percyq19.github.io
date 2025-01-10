@@ -20,7 +20,7 @@
  * - Accessible with proper ARIA labels
  */
 
-import type { AstroBuiltinAttributes } from 'astro';
+
 
 import ToggleTheme from "@components/Astro/ToggleTheme.astro";
 import type { NavEntry } from "../../Types/types";
@@ -31,7 +31,7 @@ export interface Props {
 	/** Optional theme names for the toggle */
 	themeNames?: string[];
 	/** Optional CSS classes */
-	class?: string | AstroBuiltinAttributes['class:list'];
+	class?: string | undefined;
 }
 
 const { links = [], class: className } = Astro.props;

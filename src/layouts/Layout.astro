@@ -1,5 +1,5 @@
 ---
-import type { AstroBuiltinAttributes } from 'astro';
+
 
 import { SITE, NAVIGATION } from "src/alkaline.config";
 
@@ -28,7 +28,7 @@ export interface Props {
 	logoSrc?: string;
 	faviconSrc?: string;
 	showTitleBackground?: boolean;
-	class?: string | AstroBuiltinAttributes['class:list'];}
+	class?: string | undefined;}
 
 const {
 	title = SITE.title,

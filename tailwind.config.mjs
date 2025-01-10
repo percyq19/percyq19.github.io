@@ -8,7 +8,6 @@ export default {
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	darkMode: "class",
 	theme: {
-		colors: {}, // delete this line to include the default Tailwind colors
 		// components: {
 		// 	patternHighlightColor: {
 		// 		theme: "var(--pattern-highlight-color)" || "var(--color-accent)",

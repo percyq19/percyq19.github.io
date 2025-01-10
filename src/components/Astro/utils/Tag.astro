@@ -34,7 +34,7 @@
  * - Accessible with proper aria attributes
  */
 
-import type { AstroBuiltinAttributes } from 'astro';
+
 
 export interface Props {
 	/** Tag text identifier */
@@ -44,7 +44,7 @@ export interface Props {
 	/** Size variant for the tag */
 	size?: "xs" | "sm" | "md" | "lg";
 	/** Optional CSS classes */
-	class?: string | AstroBuiltinAttributes['class:list'];
+	class?: string | undefined;
 }
 
 const { tag, count, size = "md", class: className } = Astro.props;

@@ -24,7 +24,7 @@
  * - Zero-margin container for better layout control
  */
 
-import type { AstroBuiltinAttributes } from 'astro';
+
 
 import Tag from "@components/Astro/utils/Tag.astro";
 
@@ -32,7 +32,7 @@ export interface Props {
 	/** Array of tag strings to display */
 	tags: string[];
 	/** Optional CSS classes */
-	class?: string | AstroBuiltinAttributes['class:list'];
+	class?: string | undefined;
 }
 
 const { class: className, tags } = Astro.props;

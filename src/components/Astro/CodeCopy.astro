@@ -33,7 +33,7 @@
  * - Visual feedback on copy action
  */
 
-import type { AstroBuiltinAttributes } from 'astro';
+
 import type { ShikiConfig } from "astro";
 import type {
 	BundledLanguage,
@@ -49,7 +49,7 @@ export interface Props {
 	code?: string;
 	lang: BundledLanguage | SpecialLanguage | LanguageRegistration;
 	theme?: ShikiConfig["theme"];
-	class?: string | AstroBuiltinAttributes['class:list'];
+	class?: string | undefined;
 }
 
 const {

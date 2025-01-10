@@ -46,7 +46,7 @@ export interface Props {
 	/** Optional portfolio URL for author */
 	portfolio?: string | undefined;
 	/** Optional CSS classes */
-	class?: string | AstroBuiltinAttributes['class:list'];
+	class?: string | undefined;
 }
 
 const { title = SITE.title, author, portfolio, class: className }: Props = Astro.props;
