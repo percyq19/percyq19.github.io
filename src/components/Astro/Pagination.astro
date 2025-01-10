@@ -1,0 +1,69 @@
+---
+/**
+ * @description Component for rendering pagination controls with previous/next navigation.
+ * @param {Props} props - Pagination configuration
+ * @example
+ * ```astro
+ * // Basic pagination
+ * <Pagination page={page} />
+ *
+ * // With custom styling
+ * <Pagination
+ *   page={page}
+ *   class="my-custom-pagination"
+ * />
+ *
+ * // The page object should contain:
+ * const page = {
+ *   currentPage: 1,
+ *   lastPage: 5,
+ *   url: {
+ *     prev: "/page/1",
+ *     next: "/page/2"
+ *   }
+ * };
+ * ```
+ * @note
+ * - Displays current page number and total pages
+ * - Previous/Next navigation buttons
+ * - Automatically disables buttons at boundaries
+ * - Uses theme colors for consistent styling
+ * - Responsive layout with flex positioning
+ */
+
+import type { AstroBuiltinAttributes } from "astro";
+
+export interface Props {
+	/** Page object containing navigation and current page info */
+	page: {
+		currentPage: number;
+		lastPage: number;
+		url: {
+			prev: string | undefined;
+			next: string | undefined;
+		};
+	};
+	/** Optional CSS classes */
+	class?: string | AstroBuiltinAttributes["class:list"];
+}
+
+const { page, class: className } = Astro.props;
+const { currentPage, lastPage, url } = page;
+const { next, prev } = url;
+---
+
+<nav class:list={["flex justify-start items-center", className]}>
+	<a href={prev} class:list={["text-theme-primary p-2", { disabled: !prev }]}>
+		{" "}
+		← Previous{" "}
+	</a>
+
+	<span class="px-2">
+		Page {currentPage} of {lastPage}
+	</span>
+
+	<a href={next} class:list={["text-theme-primary p-2", { disabled: !next }]}>
+		{" "}
+		Next →{" "}
+	</a>
+</nav>

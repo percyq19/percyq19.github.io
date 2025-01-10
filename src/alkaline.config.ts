@@ -123,4 +123,4 @@ export const BLOG: Blog = {
 };
 
 // export the name(s) of the collections as a list - must match the name of the collection in the content directory
-export const COLLECTION_NAMES_LIST = ["blog"];
+export const COLLECTION_NAMES_LIST = ["blog"] as const;

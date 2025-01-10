@@ -1,0 +1,105 @@
+---
+import type { AstroBuiltinAttributes } from "astro";
+
+import { COLLECTION_NAMES_LIST } from "src/alkaline.config";
+import { SITE } from "src/alkaline.config";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import Pagination from "@components/Astro/Pagination.astro";
+import Layout from "@layouts/Layout.astro";
+import Tag from "@components/Astro/utils/Tag.astro";
+import PageHeading from "@components/Astro/PageHeading.astro";
+import Author from "@components/Astro/Author.astro";
+
+export interface Props {
+	posts: any; // TODO: type
+	page?: any; // TODO: type
+	collectionName: (typeof COLLECTION_NAMES_LIST)[number] | string | undefined;
+	title?: string | undefined;
+	description?: string;
+	filter?: (typeof COLLECTION_NAMES_LIST)[number] | string | undefined;
+	includeDrafts?: boolean;
+	subtitle?: string;
+	class?: string | AstroBuiltinAttributes["class:list"];
+}
+
+const {
+	posts,
+	page,
+	collectionName = COLLECTION_NAMES_LIST[0],
+	title,
+	subtitle,
+	description = title,
+	class: className,
+} = Astro.props;
+
+const options = { "rounded-theme": true };
+---
+
+<Layout title={title} description={description} class={className}>
+	{subtitle && <PageHeading text={subtitle} showHeadingBackground />}
+	<section>
+		{
+			posts?.map((post: any) => (
+				<article class="mb-12">
+					<div class="">
+						<a
+							href={`/${post.collection || collectionName}/${post.id}`}
+							class="no-underline flex flex-row items-center mb-2 group"
+						>
+							{post.data.image && (
+								<div class="w-20 h-20 mr-4 flex-shrink-0 hidden md:block">
+									<Image
+										src={post.data.image}
+										alt={post.data.alt || post.data.title || "Post Image"}
+										width={128}
+										height={128}
+										class:list={[
+											"object-cover w-full h-full border border-theme-accent group-hover:rotate-6 transition-transform duration-500 m-0",
+											options,
+										]}
+										loading="lazy"
+									/>
+								</div>
+							)}
+							<h2 class="">{post.data.title}</h2>
+						</a>
+											<div class="flex flex-wrap -mt-2 mb-5">
+						{post.data.tags?.map((tag: string) => (
+							<Tag tag={tag} size="sm" />
+						))}
+					</div>
+					</div>
+					<p>
+						{post.data.description}{" "}
+						<a
+							href={`/${post.collection || collectionName}/${post.id}`}
+							class="text-theme-primary pl-2"
+						>
+							Read more...
+						</a>
+					</p>
+					{post.data.modDatetime && (
+						<p class="text-theme-primary font-mono text-sm">
+							updated: {post.data.modDatetime?.toDateString()}
+						</p>
+					)}
+					<p class="text-theme-primary font-mono ml-2 text-sm">
+						<Icon
+							name="ri:quill-pen-line"
+							size="16"
+							class="-mr-1 align-middle inline"
+						/>
+						Posted by{" "}
+						<Author
+							authorId={post.data.authorId || 1}
+							pubDateTime={post.data.pubDatetime}
+						/>
+					</p>
+
+				</article>
+			))
+		}
+	</section>
+	{SITE.postsPerPage < page?.total && <Pagination page={page} />}
+</Layout>

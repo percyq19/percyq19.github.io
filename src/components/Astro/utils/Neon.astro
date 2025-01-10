@@ -1,0 +1,67 @@
+---
+/**
+ * @component Neon
+ * @description A component that applies a neon text effect with flicker animation.
+ * Creates a glowing text effect with multiple layers of text shadows and optional
+ * edge glow animation.
+ *
+ * @param {Props} props - Component properties
+ *
+ * @example Basic Usage
+ * ```astro
+ * <Neon titleText="Glowing Text" />
+ * ```
+ *
+ * @example With Custom Content
+ * ```astro
+ * <Neon>
+ *   <span slot="neon">Custom Neon Text</span>
+ * </Neon>
+ * ```
+ *
+ * @example With Custom Styling
+ * ```astro
+ * <Neon
+ *   titleText="Styled Neon"
+ *   class="my-custom-class"
+ * />
+ * ```
+ *
+ * @features
+ * - Neon glow effect using CSS text-shadow
+ * - Flicker animation for realistic neon effect
+ * - Edge glow animation with gradient overlay
+ * - Customizable text content via props or slots
+ * - Theme-based accent colors
+ * - Accessibility support with title attribute
+ * - Smooth transition effects
+ *
+ * @styling
+ * - Uses theme accent color for glow effect
+ * - Multiple shadow layers for depth
+ * - Animated flicker effect
+ * - Gradient edge glow animation
+ * - Bold text with increased tracking
+ */
+
+import type { AstroBuiltinAttributes } from "astro";
+
+export interface Props {
+	/** Text content for the neon effect */
+	titleText?: string;
+	/** Additional CSS classes */
+	class?: string | AstroBuiltinAttributes["class:list"];
+}
+
+const { titleText = null, class: className } = Astro.props;
+---
+
+<span
+	class:list={["neon", className]}
+	data-text={titleText}
+	title={titleText}
+>
+	<slot name="neon">
+		{titleText}
+	</slot>
+</span>
