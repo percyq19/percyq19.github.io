@@ -1,0 +1,61 @@
+---
+/**
+ * @description Component for rendering a collection of tags with optional count indicators.
+ * @param {Props} props - TagCloud configuration
+ * @example
+ * ```astro
+ * // Basic tag cloud
+ * <TagCloud
+ *   tags={[
+ *     { name: "javascript" },
+ *     { name: "typescript" }
+ *   ]}
+ * />
+ *
+ * // Tags with count
+ * <TagCloud
+ *   tags={[
+ *     { name: "react", count: 5 },
+ *     { name: "vue", count: 3 }
+ *   ]}
+ * />
+ *
+ * // With custom styling
+ * <TagCloud
+ *   tags={tags}
+ *   class="my-custom-cloud"
+ * />
+ * ```
+ *
+ * @note
+ * - Flexible inline layout with wrapping
+ * - Large size tags for better visibility
+ * - Optional count display for each tag
+ * - Consistent spacing between tags
+ * - Theme-based accent colors for divider
+ * - Responsive padding and margins
+ */
+
+import type { AstroBuiltinAttributes } from "astro";
+import Tag from "@components/Astro/utils/Tag.astro";
+
+export interface TagCloud {
+	tags: {
+		name: string;
+		count?: number | string | undefined
+	}[];
+	class?: string | AstroBuiltinAttributes["class:list"];
+}
+
+const { tags = [], customClass } = Astro.props;
+---
+
+<div
+	class:list={[
+		"inline-flex flex-wrap justify-start items-center px-0 mb-0.5",
+		customClass,
+	]}
+>
+	{tags.map((tag: any) => <Tag tag={tag.name} count={tag.count} size="lg" />)}
+</div>
+<hr class="my-5 text-theme-accent" />

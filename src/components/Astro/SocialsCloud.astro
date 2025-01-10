@@ -1,0 +1,85 @@
+---
+/**
+ * @description Component for rendering a collection of social media links with icons.
+ * @param {Props} props - SocialsCloud configuration
+ * @example
+ * ```astro
+ * // Basic social links
+ * <SocialsCloud
+ *   socials={[
+ *     { platform: "github", url: "https://github.com/username" },
+ *     { platform: "twitter", url: "https://twitter.com/username" }
+ *   ]}
+ * />
+ *
+ * // With usernames and custom size
+ * <SocialsCloud
+ *   socials={[
+ *     {
+ *       platform: "github",
+ *       url: "https://github.com/username",
+ *       userName: "GithubUser"
+ *     }
+ *   ]}
+ *   size={32}
+ * />
+ *
+ * // With filled icons
+ * <SocialsCloud
+ *   socials={socials}
+ *   fill={true}
+ *   class="my-socials"
+ * />
+ * ```
+ *
+ * @note
+ * - Automatically adjusts icon size based on number of links
+ * - Supports filled and outlined icon variants
+ * - Responsive flex layout with wrapping
+ * - Hover effects for interactive feedback
+ * - Accessible links with proper titles
+ * - Maximum width constraint for better layout control
+ */
+
+import type { AstroBuiltinAttributes } from "astro";
+import SocialIcon from "./utils/SocialIcon.astro";
+
+export interface Social {
+	platform: string;
+	url: string;
+	userName?: string;
+}
+
+export interface Props {
+	socials: Social[];
+	size?: number;
+	fill?: boolean;
+	class?: string | AstroBuiltinAttributes['class:list'];
+}
+
+const { socials, size, fill = false, class: className } = Astro.props;
+
+function getIconSize(count: number): number {
+	// use size if size else size relative to count
+	if (size) return size;
+	if (count <= 3) return 24;
+	if (count <= 7) return 20;
+	return 22;
+}
+
+const iconSize = getIconSize(socials.length);
+---
+
+<span class:list={["inline-flex max-w-[240px] flex-wrap", className]}>
+	{
+		socials.map((social) => (
+			<SocialIcon
+				platform={social.platform}
+				url={social.url}
+				userName={social.userName}
+				size={iconSize}
+				fill={fill}
+			/>
+		))
+	}
+</span>

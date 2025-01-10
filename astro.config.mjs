@@ -1,5 +1,5 @@
 // @ts-check
-import { SITE, COLLECTION_NAMES_LIST } from "./src/alkaline.config";
+import { SITE } from "./src/alkaline.config";
 import robotsConfig from "./src/utils/robots-txt.config";
 
 import { defineConfig } from "astro/config";
@@ -18,9 +18,6 @@ export default defineConfig({
 		shikiConfig: SITE.shikiConfig,
 	},
 	integrations: [mdx(), tailwind(), sitemap(), robotsTxt(robotsConfig), icon()],
-	//   content: {
-	//     collections: COLLECTION_NAMES_LIST.map((collection) => ({ name: collection, type: 'content' })),
-	// },
 	vite: {
 		css: {
 			preprocessorOptions: {

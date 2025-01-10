@@ -1,0 +1,74 @@
+---
+/**
+ * @description Component for rendering code blocks with syntax highlighting and copy functionality.
+ * @param {Props} props - CodeCopy configuration
+ * @example
+ * ```astro
+ * // Basic usage
+ * <CodeCopy
+ *   code="console.log('Hello World');"
+ *   lang="javascript"
+ * />
+ *
+ * // With custom theme
+ * <CodeCopy
+ *   code="print('Hello Python')"
+ *   lang="python"
+ * />
+ *
+ * // With custom styling
+ * <CodeCopy
+ *   code="<h1>Hello HTML</h1>"
+ *   lang="html"
+ *   class="my-custom-code"
+ * />
+ * ```
+ *
+ * @note
+ * - Uses Astro's built-in Code component for syntax highlighting
+ * - Includes copy-to-clipboard functionality
+ * - Supports all Shiki themes and languages
+ * - Accessible copy button with proper ARIA labels
+ * - Responsive padding and positioning
+ * - Visual feedback on copy action
+ */
+
+import type { AstroBuiltinAttributes } from 'astro';
+import type { ShikiConfig } from "astro";
+import type {
+	BundledLanguage,
+	LanguageRegistration,
+	SpecialLanguage,
+} from "shiki";
+
+import { SITE } from "src/alkaline.config";
+import { Code } from "astro:components";
+import CopyToClipboard from "./utils/CopyToClipboard.astro";
+
+export interface Props {
+	code?: string;
+	lang: BundledLanguage | SpecialLanguage | LanguageRegistration;
+	theme?: ShikiConfig["theme"];
+	class?: string | AstroBuiltinAttributes['class:list'];
+}
+
+const {
+	code = "",
+	lang,
+	theme = SITE.shikiConfig.theme,
+	class: className,
+} = Astro.props;
+
+const options = { "rounded-theme": true };
+---
+
+<div class:list={["relative py-1 px-4 m-0", className]}>
+	<CopyToClipboard
+		textToCopy={code}
+		aria-label="Copy code to clipboard"
+		size={10}
+		class="absolute top-4 right-4"
+	/>
+
+	<Code lang={lang} theme={theme} code={code} class:list={options} />
+</div>

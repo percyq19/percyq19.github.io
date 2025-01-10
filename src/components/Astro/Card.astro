@@ -1,0 +1,127 @@
+---
+/**
+ * @component Card
+ * @description A versatile card component with customizable styling and optional icon.
+ * Supports alternate color schemes and configurable shadow depths.
+ *
+ * @param {Props} props - Component properties
+ *
+ * @example Basic Usage
+ * ```astro
+ * <Card
+ *   title="Feature"
+ *   description="Description of the feature"
+ * />
+ * ```
+ *
+ * @example With Icon and Custom Shadow
+ * ```astro
+ * <Card
+ *   title="Service"
+ *   description="Our service details"
+ *   iconSrc="icon-name"
+ *   shadowSize="lg"
+ * />
+ * ```
+ *
+ * @example Alternate Color Scheme
+ * ```astro
+ * <Card
+ *   title="About"
+ *   description="About us content"
+ *   alt={true}
+ *   class="my-custom-class"
+ * />
+ * ```
+ *
+ * @features
+ * - Responsive design with mobile-first approach
+ * - Optional icon with themed background
+ * - Configurable shadow depths
+ * - Alternate color schemes
+ * - Theme-based styling
+ * - Consistent typography
+ * - Customizable via props
+ */
+
+import type { AstroBuiltinAttributes } from 'astro';
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+	/** Card title text */
+	title: string;
+	/** Card description content */
+	description: string;
+	/** Use alternate color scheme */
+	alt?: boolean;
+	/** Optional icon source name */
+	iconSrc?: string;
+	/** Shadow size variant */
+	shadowSize?: "sm" | "md" | "lg" | "none" | null;
+	/** Additional CSS classes */
+	class?: string | AstroBuiltinAttributes['class:list'];
+}
+
+const {
+	title,
+	description,
+	alt = false,
+	iconSrc = null,
+	shadowSize = "sm",
+	class: className,
+} = Astro.props;
+
+const options = {
+	"rounded-theme": true,
+	"bg-theme-primary border-theme-primary": !alt,
+	"bg-theme-secondary border-theme-secondary": alt,
+	"shadow-sm": shadowSize === "sm",
+	"shadow-md": shadowSize === "md",
+	"shadow-lg": shadowSize === "lg",
+	"shadow-none": shadowSize === "none",
+};
+---
+
+<div
+	class:list={[
+		"border-2 shadow-theme-primary p-4 w-full md:max-w-xs md:h-auto",
+		options,
+		className,
+	]}
+>
+	<p
+		class:list={[
+		"h2",
+			"center",
+			"uppercase",
+			"font-bold",
+			"mb-2",
+			{ "text-theme-primary": !alt, "text-theme-secondary": alt },
+		]}
+	>
+
+			{
+		iconSrc && (
+			<span class="flex logo-wrapper items-center p-4 bg-theme-accent">
+				<span class="flex items-center border-2 border-theme-secondary rounded-full">
+					<Icon name={iconSrc} size="16" class="absolute m-1" />
+			class="absolute m-1" />
+				</span>
+			</span>
+		)
+	}
+
+
+		{title}
+	</>
+	<hr
+		class:list={[
+			"border-1 mb-2",
+			{ "border-theme-primary": !alt },
+			{ "border-theme-secondary": alt },
+		]}
+	/>
+	<p class:list={[{ "text-theme-primary": !alt, "text-theme-secondary": alt }]}>
+		{description}
+	</p>
+</div>
