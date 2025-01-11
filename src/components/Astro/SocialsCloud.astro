@@ -70,7 +70,7 @@ function getIconSize(count: number): number {
 const iconSize = getIconSize(socials.length);
 ---
 
-<span class:list={["inline-flex max-w-[240px] flex-wrap", className]}>
+<span class:list={["inline-flex md:max-w-md flex-wrap", className]}>
 	{
 		socials.map((social) => (
 			<SocialIcon
@@ -79,6 +79,7 @@ const iconSize = getIconSize(socials.length);
 				userName={social.userName}
 				size={iconSize}
 				fill={fill}
+
 			/>
 		))
 	}
