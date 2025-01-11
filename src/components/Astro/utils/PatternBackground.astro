@@ -44,7 +44,7 @@
  * - Optimized SVG rendering with non-scaling-stroke
  */
 
-import type { AstroBuiltinAttributes } from "astro";
+
 
 // Add common pattern presets
 const PATTERN_PRESETS = {
@@ -67,7 +67,7 @@ export interface Props {
 	/** Enable/disable pattern animation */
 	animate?: boolean;
 	/** Optional CSS classes */
-	class?: string | AstroBuiltinAttributes["class:list"];
+	class?: string |  undefined;
 }
 
 const {

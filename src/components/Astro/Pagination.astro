@@ -31,7 +31,7 @@
  * - Responsive layout with flex positioning
  */
 
-import type { AstroBuiltinAttributes } from "astro";
+
 
 export interface Props {
 	/** Page object containing navigation and current page info */
@@ -44,7 +44,7 @@ export interface Props {
 		};
 	};
 	/** Optional CSS classes */
-	class?: string | AstroBuiltinAttributes["class:list"];
+	class?: string |  undefined;
 }
 
 const { page, class: className } = Astro.props;

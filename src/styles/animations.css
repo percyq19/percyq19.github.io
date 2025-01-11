@@ -7,11 +7,8 @@
 	.neon {
 		@apply text-theme-accent font-bold tracking-wider relative inline-block;
 		color: var(--color-accent);
-		text-shadow:
-			0 0 7px var(--color-accent),
-			0 0 10px var(--color-accent),
-			0 0 21px var(--color-accent),
-			0 0 42px var(--color-accent);
+		text-shadow: 0 0 7px var(--color-accent), 0 0 10px var(--color-accent),
+			0 0 21px var(--color-accent), 0 0 42px var(--color-accent);
 		animation: neon-flicker 6s infinite alternate;
 		transition: transform 0.3s ease-out;
 	}
@@ -54,19 +51,14 @@
 		53%,
 		57%,
 		100% {
-			text-shadow:
-				0 0 7px var(--color-accent),
-				0 0 10px var(--color-accent),
-				0 0 21px var(--color-accent),
-				0 0 42px var(--color-accent);
+			text-shadow: 0 0 7px var(--color-accent), 0 0 10px var(--color-accent),
+				0 0 21px var(--color-accent), 0 0 42px var(--color-accent);
 		}
 		20%,
 		24%,
 		55%,
 		100% {
-			text-shadow:
-				0 0 2px var(--color-accent),
-				0 0 4px var(--color-accent);
+			text-shadow: 0 0 2px var(--color-accent), 0 0 4px var(--color-accent);
 		}
 	}
 

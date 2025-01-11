@@ -42,14 +42,14 @@
  * - Theme-based accent colors
  */
 
-import type { AstroBuiltinAttributes } from "astro";
+
 
 export interface Props {
 	features: {
 		title: string;
 		description?: string;
 	}[];
-	class?: string | AstroBuiltinAttributes["class:list"];
+	class?: string |  undefined;
 }
 
 const { features, class: className } = Astro.props;

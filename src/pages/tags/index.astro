@@ -1,0 +1,35 @@
+---
+import { COLLECTION_NAMES_LIST } from "src/alkaline.config";
+import { getCollection } from "astro:content";
+import Layout from "@layouts/Layout.astro";
+import TagCloud from "@components/Astro/TagCloud.astro";
+import PageHeading from "@components/Astro/PageHeading.astro";
+// Get all entries from all collections
+const allEntries = await Promise.all(
+	COLLECTION_NAMES_LIST.map((collection) => getCollection(collection))
+);
+
+// Flatten the array of entries and extract all tags
+const allTags = allEntries.flat().flatMap((entry) => entry.data.tags || []);
+
+// Count occurrences of each tag
+const tagCounts = allTags.reduce(
+	(acc, tag) => {
+		acc[tag] = (acc[tag] || 0) + 1;
+		return acc;
+	},
+	{} as Record<string, number>
+);
+
+// Sort tags by count (descending) and create tag objects
+const sortedTags = Object.entries(tagCounts)
+	.sort(([, a], [, b]) => (b as number) - (a as number))
+	.map(([tag, count]) => ({ name: tag, count }));
+---
+
+<Layout title="Tags">
+	<PageHeading text="Get Entries by Tag" />
+	<section>
+		<TagCloud tags={sortedTags} />
+	</section>
+</Layout>

@@ -8,39 +8,26 @@ export default {
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	darkMode: "class",
 	theme: {
-		// components: {
-		// 	patternHighlightColor: {
-		// 		theme: "var(--pattern-highlight-color)" || "var(--color-accent)",
-		// 	},
-		// },
-		extend: {
-			borderRadius: {
-				theme: "var(--border-radius)",
-			},
-		},
 		colors: {
-			white: colors.white || "#ffffff",
-			black: colors.black || "#000000",
-			slate: {
-				100: "#f1f5f9",
-				200: "#e2e8f0",
-				300: "#cbd5e1",
-				400: "#94a3b8",
-				500: "#64748b",
-				600: "#475569",
-				700: "#334155",
-				800: "#1e293b",
-				900: "#0f172a",
-				950: "#020617",
+			slate: colors.slate,
+			white: colors.white,
+			black: colors.black,
+			transparent: 'transparent',
+			theme: {
+				primary: "var(--color-accent)",
+				secondary: "var(--color-accent-alt)",
 			},
-			transparent: "transparent",
 		},
 		backgroundColor: {
+			slate: colors.slate,
+			white: colors.white,
+			black: colors.black,
+			transparent: 'transparent',
 			theme: {
-				primary: "var(--color-background)",
-				secondary: "var(--color-text)",
-				accent: "var(--color-accent)",
-				"accent-alt": "var(--color-accent-alt)",
+				primary: "var(--color-background, #ffffff)",
+				secondary: "var(--color-text, #000000)",
+				accent: "var(--color-accent, #3498db)",
+				"accent-alt": "var(--color-accent-alt, #e67e22)",
 			},
 		},
 		backgroundImage: {
@@ -62,6 +49,10 @@ export default {
 			}),
 		},
 		borderColor: {
+			...colors.slate,
+			white: colors.white,
+			black: colors.black,
+			transparent: 'transparent',
 			theme: {
 				primary: "var(--color-accent)",
 				secondary: "var(--color-accent-alt)",
@@ -74,6 +65,10 @@ export default {
 			},
 		},
 		textColor: {
+			...colors.slate,
+			white: colors.white,
+			black: colors.black,
+			transparent: 'transparent',
 			theme: {
 				primary: "var(--color-text)",
 				secondary: "var(--color-background)",
@@ -117,8 +112,18 @@ export default {
 		minHeight: {
 			screen: "100vh",
 		},
+		extend: {
+			borderRadius: {
+				theme: "var(--border-radius)",
+			},
+		},
 	},
 	plugins: [require("@tailwindcss/typography")],
+	safelist: [
+		'bg-slate-400',
+		'text-white',
+		// Add other dynamic classes here
+	],
 };
 
 /**

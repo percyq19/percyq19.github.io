@@ -1,5 +1,5 @@
 ---
-import type { AstroBuiltinAttributes } from "astro";
+
 
 import { Icon } from "astro-icon/components";
 
@@ -10,7 +10,7 @@ export interface Props {
 	size?: number;
 	fill?: boolean;
 	iconPrefix?: string; //  i.e. "ri"
-	class?: string | AstroBuiltinAttributes["class:list"];
+	class?: string |  undefined;
 }
 
 const {

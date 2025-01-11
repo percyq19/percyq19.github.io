@@ -70,7 +70,7 @@ const {
 					Title
 				</h2>
 				<p>Various configurations are available for the title component.</p>
-				<div class="ml-12">
+				<div class="ml-4 lg:ml-12">
 					<Title title="No Background" showTitleBackground={false} />
 					<div class="h-8"></div>
 					<Title
@@ -101,7 +101,7 @@ const {
 					Both are possible with Alakline's built in page header component. You
 					may need to refresh the page to see the animation.
 				</p>
-				<div class="ml-12">
+				<div class="ml-4 lg:ml-12">
 					<PageHeader
 						heading="Page Header"
 						description="The page header is a component that is used to display the page header."
@@ -132,7 +132,7 @@ const {
 					cards.
 				</p>
 				<div
-					class="flex flex-row flex-wrap justify-start items-center gap-6 w-full mt-6 ml-12"
+					class="flex flex-row flex-wrap justify-start items-center gap-6 mt-6 ml-12 mx-auto"
 				>
 					<Card
 						title="Card"
@@ -226,7 +226,7 @@ const {
 					<Icon name="ri:star-fill" width="1.75rem" class="inline -mt-2" />
 					Paragraphs
 				</h2>
-				<div class="ml-12">
+				<div class="ml-4 lg:ml-12">
 					<p class="mb-4">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna
 						nec purus lacinia tincidunt nec lorem ipsum dolor sit amet.
@@ -246,7 +246,7 @@ const {
 					<Icon name="ri:star-fill" width="1.75rem" class="inline -mt-2" />
 					Lists
 				</h2>
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 ml-12">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 ml-4 lg:ml-12">
 					<span>
 						<h3 class="mb-2">Unordered List</h3>
 						<ul class="list-disc pl-5">
@@ -273,7 +273,7 @@ const {
 					<Icon name="ri:star-fill" width="1.75rem" class="inline -mt-2" />
 					Blockquotes
 				</h2>
-				<div class="ml-12">
+				<div class="ml-4 lg:ml-12">
 					<blockquote class="border-l-4 border-gray-300 pl-4 italic">
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut
@@ -290,12 +290,12 @@ const {
 					<Icon name="ri:star-fill" width="1.75rem" class="inline -mt-2" />
 					Code
 				</h2>
-				<div class="ml-12">
+				<div class="ml-4 lg:ml-12">
 					<p class="mb-4">
 						Inline code: <Code code=" const x = 42; " lang="js" inline />
-						<p>Code block:</p>
+						<p class="mt-8 mb-2">Code block:</p>
 						<Code lang="astro" code={code} />
-						<p>Code block with copy to clipboard:</p>
+						<p class="mt-8 mb-2">Code block with copy to clipboard:</p>
 						<CodeCopy lang="astro" code={code} />
 					</p>
 				</div>
@@ -307,7 +307,7 @@ const {
 						<Icon name="ri:star-fill" width="1.75rem" class="inline -mt-2" />
 						Links
 					</h2>
-					<div class="mb-2 ml-12">
+					<div class="mb-2 ml-4 lg:ml-12">
 						<Link href="/elements" class="pr-1" text="Internal Link" />
 						<div class="h-2"></div>
 						<Link

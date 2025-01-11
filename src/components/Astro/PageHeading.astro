@@ -27,7 +27,7 @@
  * - Responsive padding and margins for different screen sizes
  */
 
-import type { AstroBuiltinAttributes } from "astro";
+
 
 export interface Props {
 	/** Text content of the heading */
@@ -35,7 +35,7 @@ export interface Props {
 	/** Controls whether heading has background styling */
 	showHeadingBackground?: boolean;
 	/** Optional CSS classes */
-	class?: string | AstroBuiltinAttributes["class:list"];
+	class?: string |  undefined;
 }
 
 const { text, showHeadingBackground = true, class: className } = Astro.props;

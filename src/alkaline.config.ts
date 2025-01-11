@@ -1,13 +1,13 @@
 import { Platforms } from "./Types/types"; // as const
 
-import type { Site, Author, Blog, Socials, NavEntry } from "./Types/types";
+import type { Site, Author, Blog, Socials, NavEntry, Docs } from "./Types/types";
 
 /**
  * @description This file contains the configuration for the Alkaline theme.
  * - There are quite a few settings, but they allow for a vast amount of automatization across the theme
  * @exports SITE - The site configuration object
  * @exports NAVIGATION - The navigation configuration object
- * @exports BLOG - The blog configuration object
+//  * @exports BLOG - The blog configuration object
  * @exports DOCS - The docs configuration object
  */
 
@@ -89,8 +89,8 @@ export const NAVIGATION: NavEntry[] = [
 		text: "Home",
 	},
 	{
-		href: "/blog",
-		text: "Blog",
+		href: "/docs",
+		text: "Docs",
 	},
 	{
 		href: "/tags",
@@ -114,8 +114,8 @@ export const NAVIGATION: NavEntry[] = [
 	},
 ];
 
-export const BLOG: Blog = {
-	title: "Sample Blog",
+export const DOCS: Docs = {
+	title: "Alkaline Docs",
 	author: AUTHORS[0].name,
 	description: SITE.description || "",
 	keywords: SITE.keywords,
@@ -123,4 +123,4 @@ export const BLOG: Blog = {
 };
 
 // export the name(s) of the collections as a list - must match the name of the collection in the content directory
-export const COLLECTION_NAMES_LIST = ["blog"] as const;
+export const COLLECTION_NAMES_LIST = ["docs"] as const;

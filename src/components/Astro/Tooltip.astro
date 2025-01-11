@@ -45,20 +45,18 @@
  * - Arrow indicator for better UX
  */
 
-import type { AstroBuiltinAttributes } from "astro";
-
 export interface Props {
 	triggerText?: string;
 	tooltipText?: string;
 	neonify?: boolean | "true" | "false";
-	class?: string | AstroBuiltinAttributes["class:list"];
+	class?: string | undefined;
 }
 
 const {
 	triggerText,
 	tooltipText,
 	neonify = false,
-	class: className
+	class: className,
 } = Astro.props;
 
 const options = { "rounded-theme": true };
@@ -75,26 +73,15 @@ const options = { "rounded-theme": true };
 
 	<span
 		class:list={[
-			"absolute z-10 text-sm tracking-wide hidden group-hover:block font-semibold font-mono py-2 px-4 bottom-[40px] left-1/2 transform -translate-x-1/2 mb-2 whitespace-nowrap shadow-sm",
+			"absolute z-10 text-sm tracking-wide hidden group-hover:block font-semibold font-mono py-2 px-4 bottom-[40px] left-1/2 transform -translate-x-1/2 mb-2 whitespace-nowrap shadow-sm bg-theme-primary border-2",
 			options,
-			{
-				"bg-theme-primary text-theme-primary text-base border-2 border-theme-accent shadow-theme-accent":
-					neonify,
-				"bg-slate-400 text-white border border-theme-primary shadow-theme-primary":
-					!neonify,
-			},
 		]}
 	>
 		<slot name="content">{tooltipText}</slot>
 		<span
 			class:list={[
 				"absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-0 h-0",
-				"border-l-[8px] border-l-transparent",
-				"border-r-[8px] border-r-transparent",
-				{
-					"border-t-[8px] border-t-theme-accent": neonify,
-					"border-t-[8px] border-t-[#747474]": !neonify,
-				},
+				"border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px]"
 			]}></span>
 	</span>
 </span>

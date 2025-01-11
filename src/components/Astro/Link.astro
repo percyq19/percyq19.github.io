@@ -40,7 +40,7 @@
  * - Configurable rel attribute for security
  */
 
-import type { AstroBuiltinAttributes } from "astro";
+
 
 export interface Props {
 	/** URL for the link destination */
@@ -54,7 +54,7 @@ export interface Props {
 	/** Optional rel attribute value */
 	rel?: string;
 	/** Optional CSS classes */
-	class?: string | AstroBuiltinAttributes["class:list"];
+	class?: string |  undefined;
 }
 
 const {

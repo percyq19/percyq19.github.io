@@ -44,13 +44,13 @@
  * - Bold text with increased tracking
  */
 
-import type { AstroBuiltinAttributes } from "astro";
+
 
 export interface Props {
 	/** Text content for the neon effect */
 	titleText?: string;
 	/** Additional CSS classes */
-	class?: string | AstroBuiltinAttributes["class:list"];
+	class?: string |  undefined;
 }
 
 const { titleText = null, class: className } = Astro.props;
