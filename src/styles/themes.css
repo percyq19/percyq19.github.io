@@ -36,21 +36,21 @@
 	--border-radius: 0.2rem;
 }
 .theme-generic {
-	--color-background: #f0f0f0;
+	--color-background: #a09c9c;
 	--color-gradient: #d6eff8;
 	--color-text: #040910;
 	--color-accent: #d74247;
 	--color-accent-alt: #264899;
 	--color-shadow: #aacfd5;
 	/* options */
-
 }
-.theme-haunted {
-	--color-background: #000000;
-	--color-gradient: var(--color-background);
-	--color-text: #ffffff;
-	--color-accent: #7a1717;
-	--color-accent-alt: #000000;
+.theme-hero {
+	--color-background: #ebeaea;
+	--color-gradient: #c4e2ff;
+	--color-text: #ffeb00;
+	--color-text: #0060aa;
+	--color-accent: #be1212;
+	--color-accent-alt: #ffeb00;
 	--color-shadow: hsla(248, 30%, 24%, 0.747);
 	/* options */
 	--border-radius: 0.2rem;
@@ -106,7 +106,7 @@
 	--border-radius: 0.8rem;
 }
 .theme-pop-punk {
-	--color-background: #1a1a1a;
+	--color-background: #000000;
 	--color-gradient: var(--color-background);
 	--color-text: #ffffff;
 	--color-accent: #ff1493;
