@@ -22,7 +22,7 @@ Alkaline is an Astro-based theme that provides:
 ### Clone the repository
 
 ```bash
-git clone https://github.com/your-username/alkaline-astro-theme.git
+git clone https://github.com/TruJared/alkaline
 cd alkaline-astro-theme
 ```
 
