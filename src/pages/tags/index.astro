@@ -9,7 +9,7 @@ const allEntries = await Promise.all(
 	COLLECTION_NAMES_LIST.map((collection) => getCollection(collection))
 );
 
-// Flatten the array of entries and extract all tags
+// Flatten the array and extract tags
 const allTags = allEntries.flat().flatMap((entry) => entry.data.tags || []);
 
 // Count occurrences of each tag
@@ -21,10 +21,13 @@ const tagCounts = allTags.reduce(
 	{} as Record<string, number>
 );
 
-// Sort tags by count (descending) and create tag objects
+// Sort tags and create objects with explicit typing
 const sortedTags = Object.entries(tagCounts)
-	.sort(([, a], [, b]) => (b as number) - (a as number))
-	.map(([tag, count]) => ({ name: tag, count }));
+	.sort(([, a], [, b]): number => (b as number) - (a as number))
+	.map(([tag, count]): { name: string; count: number } => ({
+		name: tag,
+		count: count as number
+	}));
 ---
 
 <Layout title="Tags">

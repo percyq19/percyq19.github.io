@@ -1,11 +1,11 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { SITE, DOCS } from "@config";
-import { COLLECTION_NAMES } from "@content/collectionsData";
+import { COLLECTION_NAMES_LIST } from "../alkaline.config";
 
 export async function GET(context) {
 	const allPosts = await Promise.all(
-		COLLECTION_NAMES.map(async (collection) => {
+		COLLECTION_NAMES_LIST.map(async (collection) => {
 			const posts = await getCollection(collection);
 			return posts.map((post) => ({ ...post, collection }));
 		})

@@ -1,6 +1,6 @@
 import { Platforms } from "./Types/types"; // as const
 
-import type { Site, Author, Blog, Socials, NavEntry, Docs } from "./Types/types";
+import type { Site, Author, Socials, NavEntry, Docs } from "./Types/types";
 
 /**
  * @description This file contains the configuration for the Alkaline theme.
@@ -52,12 +52,12 @@ export const SITE: Site = {
 	description: "A Neutral Base For Your Next Creation",
 	keywords: ["astro", "theme", "blog"],
 	disableIndexing: false, // true for no indexing
-	logoSrc: "/alk-4.png", // in public folder png or svg
+	logoSrc: "/alk4.png", // in public folder png or svg
 	faviconSrc: "/favicon.png", // in public folder png or svg
 	ogImage: "/og-image.png", // in public folder
 	socials: socials,
 	locale: "en_US",
-	postsPerPage: 2, // TODO: change this to a non-testing number
+	postsPerPage: 3, // TODO: change this to a non-testing number
 	shikiConfig: {
 		theme: "poimandres",
 	},

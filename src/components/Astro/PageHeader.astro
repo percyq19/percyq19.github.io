@@ -14,7 +14,7 @@
  * <PageHeader
  *   heading="About Us"
  *   description="Meet our team"
- *   image={"/assets/teamImage.png"}
+ *   image={teamImage}
  *   imageAlt="Team photo"
  * />
  *
@@ -47,17 +47,20 @@
  * - Staggered build-in animations for text elements
  */
 
-
+import type { AstroBuiltinAttributes } from "astro";
 import type { ImageMetadata } from "astro";
 import PatternBackground from "@components/Astro/utils/PatternBackground.astro";
 import Image from "astro/components/Image.astro";
 
-
-export type BaseProps = {
+export interface Props {
 	/** Main heading text */
 	heading: string;
 	/** Optional subheading or description text */
 	description?: string;
+	/** Optional image to display */
+	image?: ImageMetadata;
+	/** Alt text for the image */
+	imageAlt?: string;
 	/** Controls image animation (default: true) */
 	animateImage?: boolean;
 	/** Pattern name for background decoration */
@@ -65,36 +68,14 @@ export type BaseProps = {
 	/** Opacity value for background pattern (0-1) */
 	patternOpacity?: number;
 	/** Optional CSS classes */
-	class?: string | undefined;
-};
-
-export type PropsWithImage = BaseProps & {
-	/** Image src to display */
-	image: string | ImageMetadata;
-	/** Alt text for the image (required when image is present) */
-	imageAlt: string;
-	/** Width of the image (required when image is present) */
-	imageWidth: number;
-	/** Height of the image */
-	imageHeight?: number;
-};
-
-export type PropsWithoutImage = BaseProps & {
-	image?: never;
-	imageAlt?: never;
-	imageWidth?: never;
-	imageHeight?: never;
-};
-
-export type Props = PropsWithImage | PropsWithoutImage;
+	class?: string | AstroBuiltinAttributes["class:list"];
+}
 
 const {
 	heading,
 	description,
 	image,
 	imageAlt,
-	imageWidth,
-	imageHeight = imageWidth,
 	animateImage = true,
 	backgroundPattern,
 	patternOpacity,
@@ -137,8 +118,9 @@ const {
 							{ "spin-and-grow": animateImage },
 							{ "rounded-theme": true },
 						]}
-						width={imageWidth}
-						height={imageHeight}
+						width={500}
+						height={500}
+						loading="eager"
 					/>
 				</div>
 			</div>
