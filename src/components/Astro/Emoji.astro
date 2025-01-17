@@ -1,6 +1,4 @@
 ---
-
-
 /**
  * @description Component for rendering accessible emoji characters.
  * @param {EmojiProps} props - Emoji configuration
@@ -40,7 +38,7 @@ export interface Props {
    */
   label?: string;
   /** Optional CSS classes */
-  class?: string | AstroBuiltinAttributes["class:list"]
+  class?: string | undefined
 }
 
 const { label, symbol, class: className } = Astro.props;

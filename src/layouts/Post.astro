@@ -1,5 +1,4 @@
 ---
-import type { AstroBuiltinAttributes } from "astro";
 import type { CollectionEntry } from "astro:content";
 
 import { COLLECTION_NAMES_LIST } from "src/alkaline.config";
@@ -17,7 +16,7 @@ export interface Props {
 	collectionName: (typeof COLLECTION_NAMES_LIST)[number];
 	postId: string | number;
 	tags: string[] | undefined | null;
-	class?: string | AstroBuiltinAttributes["class:list"];
+	class?: string | undefined;
 }
 
 const { class: className, collectionName, postId } = Astro.props;
