@@ -1,6 +1,8 @@
 // Tailwind config -> https://v3.tailwindcss.com/docs/theme
 // V4 - coming soon
 
+import theme from "tailwindcss/defaultTheme";
+
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
@@ -15,18 +17,25 @@ export default {
 			slate: colors.slate,
 			white: colors.white,
 			black: colors.black,
-			transparent: 'transparent',
+			transparent: "transparent",
+			// makes the colors available in the theme object so we can use them in utility classes (e.g. focus:ring-theme-accent)
+			theme: {
+				primary: "var(--color-text)",
+				secondary: "var(--color-background)",
+				accent: "var(--color-accent)",
+				"accent-alt": "var(--color-accent-alt)",
+			},
 		},
 		backgroundColor: {
 			slate: colors.slate,
 			white: colors.white,
 			black: colors.black,
-			transparent: 'transparent',
+			transparent: "transparent",
 			theme: {
-				primary: "var(--color-background, #ffffff)",
-				secondary: "var(--color-text, #000000)",
-				accent: "var(--color-accent, #3498db)",
-				"accent-alt": "var(--color-accent-alt, #e67e22)",
+				primary: "var(--color-background)",
+				secondary: "var(--color-text)",
+				accent: "var(--color-accent)",
+				"accent-alt": "var(--color-accent-alt",
 			},
 		},
 		backgroundImage: {
@@ -40,21 +49,22 @@ export default {
 			"gradient-radial": generateGradient({
 				type: "radial",
 				shape: "ellipse",
-				position: "center right",
+				position: "bottom right",
 				colors: [
+					"var(--color-text)",
 					"var(--color-accent-alt)",
 					"var(--color-accent)",
+					"var(--color-accent)",
+					"var(--color-accent-alt)",
 					"var(--color-text)",
-					"var(--color-gradient)",
-					"var(--color-background)",
 				],
 			}),
 		},
 		borderColor: {
-			slate:colors.slate,
+			slate: colors.slate,
 			white: colors.white,
 			black: colors.black,
-			transparent: 'transparent',
+			transparent: "transparent",
 			theme: {
 				primary: "var(--color-text)",
 				secondary: "var(--color-background)",
@@ -73,7 +83,7 @@ export default {
 			...colors.slate,
 			white: colors.white,
 			black: colors.black,
-			transparent: 'transparent',
+			transparent: "transparent",
 			theme: {
 				primary: "var(--color-text)",
 				secondary: "var(--color-background)",

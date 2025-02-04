@@ -1,59 +1,50 @@
 ---
-/**
- * @description Component for rendering a consistent footer across pages with optional author attribution.
- * @param {Props} props - Footer configuration
- * @example
- * ```astro
- * // Basic footer
- * <Footer title="My Website" />
+/* Component for rendering a consistent footer across pages.
  *
- * // Footer with author attribution
- * <Footer
- *   title="My Website"
- *   author="John Doe"
- * />
+ * Props:
+ * - title?: string - Website title (defaults to SITE.title)
+ * - author?: string - Optional author name for attribution
+ * - portfolio?: string - Optional portfolio URL for author
+ * - class?: string - Additional CSS classes
  *
- * // Footer with author link
+ * Example usage:
  * <Footer
  *   title="My Website"
  *   author="John Doe"
  *   portfolio="https://johndoe.com"
- * />
- *
- * // With custom styling
- * <Footer
- *   title="My Website"
  *   class="my-custom-footer"
  * />
- * ```
- * @note
+ *
+ * Notes:
  * - Displays copyright information with current year
  * - Optional author attribution with portfolio link
- * - Customizable through class prop
- * - Responsive layout with container constraints
  * - Uses Link component for external portfolio links
+ * - Responsive layout with container constraints
+ * - Customizable through class prop
  */
 
 import { SITE } from "src/alkaline.config";
+
 import Link from "@components/Astro/Link.astro";
+import SocialsCloud from "./SocialsCloud.astro";
 
 
-export interface Props {
-	/** Website title, defaults to SITE.title */
+interface Props {
+	// Website title, defaults to SITE.title //
 	title?: string | undefined;
-	/** Optional author name for attribution */
+	// Optional author name for attribution //
 	author?: string | undefined;
-	/** Optional portfolio URL for author */
+	// Optional portfolio URL for author //
 	portfolio?: string | undefined;
-	/** Optional CSS classes */
+	// Optional CSS classes //
 	class?: string | undefined;
 }
 
 const { title = SITE.title, author, portfolio, class: className }: Props = Astro.props;
 ---
 
-<footer class:list={["mt-auto", className]}>
-	<div class="container mx-auto px-4 py-8">
+<footer class:list={["mt-auto mb-0 pb-0", className]}>
+	<div class="container mx-auto px-4 pt-8 p-0">
 		<p class="text-center text-sm">
 			&copy; {new Date().getFullYear()}
 			{title}. All rights reserved.
@@ -76,6 +67,9 @@ const { title = SITE.title, author, portfolio, class: className }: Props = Astro
 					</svg>{" "}
 					by{" "}
 					{portfolio ? <Link href={portfolio} text={author} external hideIcon/> : author}
+				</p>
+				<p class="text-center text-sm">
+				 <SocialsCloud socials={SITE.socials} class="opacity-80"/>
 				</p>
 			)
 		}

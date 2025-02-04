@@ -1,18 +1,14 @@
 ---
-/**
- * @description Component for rendering a list of features with titles and optional descriptions.
- * @param {Props} props - FeaturesList configuration
- * @example
- * ```astro
- * // Basic features list
- * <FeaturesList
- *   features={[
- *     { title: "Easy Setup" },
- *     { title: "Fast Performance" }
- *   ]}
- * />
+/* Component for rendering a list of features with titles and optional descriptions.
  *
- * // Features with descriptions
+ * Props:
+ * - features: Array<{
+ *     title: string,
+ *     description?: string
+ *   }> - Array of feature objects
+ * - class?: string - Additional CSS classes
+ *
+ * Example usage:
  * <FeaturesList
  *   features={[
  *     {
@@ -24,53 +20,47 @@
  *       description: "Automatic theme switching"
  *     }
  *   ]}
- * />
- *
- * // With custom styling
- * <FeaturesList
- *   features={features}
  *   class="my-custom-list"
  * />
- * ```
  *
- * @note
+ * Notes:
  * - Animated highlight effect on hover
  * - Monospace font for feature titles
  * - Indented descriptions with italic styling
  * - Smooth transitions for visual effects
- * - Accessible structure with proper heading hierarchy
  * - Theme-based accent colors
  */
 
-
-
-export interface Props {
+interface Props {
 	features: {
 		title: string;
 		description?: string;
 	}[];
-	class?: string |  undefined;
+	class?: string | undefined;
 }
 
 const { features, class: className } = Astro.props;
 ---
 
-<ul class:list={["space-y-4", className]}>
+<ul class:list={[className]}>
 	{
 		features.map((feature) => (
-			<li class="">
-				<div class="absolute inset-0 bg-theme-accent opacity-10 scale-x-0 transition-transform duration-300 origin-left" />
-				<div class="relative z-1">
-					<h3 class="text-xl font-mono font-semibold mb-1 text-theme-accent build-in">
-						{feature.title}
-					</h3>
-					{feature.description && (
-						<p class="ml-4 italic text-theme-primary/80 fade-in">
-							{feature.description}
-						</p>
-					)}
-				</div>
+			<li class="relative mb-8">
+				<h3 class="text-xl font-mono font-semibold text-theme-accent build-in mb-0">
+					{feature.title}
+				</h3>
+				{feature.description && (
+					<p class="ml-4 italic text-theme-primary fade-in mt-2 text-lg">
+						{feature.description}
+					</p>
+				)}
 			</li>
 		))
 	}
 </ul>
+
+<style>
+.fade-in {
+animation-delay: 0.25s;
+}
+</style>

@@ -1,6 +1,4 @@
 ---
-// TODO: fix pagination
-
 import { COLLECTION_NAMES_LIST } from "src/alkaline.config";
 import { SITE } from "src/alkaline.config";
 import { Image } from "astro:assets";
@@ -8,12 +6,12 @@ import { Icon } from "astro-icon/components";
 import Pagination from "@components/Astro/Pagination.astro";
 import Layout from "@layouts/Layout.astro";
 import Tag from "@components/Astro/utils/Tag.astro";
-import PageHeading from "@components/Astro/PageHeading.astro";
+import Heading from "@components/Astro/Heading.astro";
 import Author from "@components/Astro/Author.astro";
 
-export interface Props {
-	posts: any; // TODO: type
-	page?: any; // TODO: type
+interface Props {
+	posts: any;
+	page?: any;
 	collectionName: (typeof COLLECTION_NAMES_LIST)[number] | string | undefined;
 	title?: string | undefined;
 	description?: string;
@@ -34,43 +32,49 @@ const {
 } = Astro.props;
 
 const options = { "rounded-theme": true };
+
+const sortedPosts = posts?.sort(
+	(a:any, b:any) =>
+		new Date(b.data?.pubDatetime || 0).valueOf() -
+		new Date(a.data?.pubDatetime || 0).valueOf()
+);
 ---
 
 <Layout title={title} description={description} class={className}>
-	{subtitle && <PageHeading text={subtitle} showHeadingBackground />}
-	<section>
+	{subtitle && <Heading text={subtitle} showHeadingBackground />}
+	<section class="md:max-w-3xl md:mx-auto mt-0">
+		{!posts?.length && <p class="text-theme-primary">No posts found.</p>}
 		{
 			posts?.map((post: any) => (
-				<article class="mb-12">
-					<div class="">
-						<a
-							href={`/${post.collection || collectionName}/${post.id}`}
-							class="no-underline flex flex-row items-center mb-2 group"
-						>
-							{post.data.image && (
-								<div class="w-20 h-20 mr-4 flex-shrink-0 hidden md:block">
-									<Image
-										src={post.data.image}
-										alt={post.data.alt || post.data.title || "Post Image"}
-										width={128}
-										height={128}
-										class:list={[
-											"object-cover w-full h-full border border-theme-accent group-hover:rotate-6 transition-transform duration-500 m-0",
-											options,
-										]}
-										loading="lazy"
-									/>
-								</div>
-							)}
-							<h2 class="">{post.data.title}</h2>
-						</a>
-											<div class="flex flex-wrap -mt-2 mb-5">
+				<article class="mb-10" id={post.id}>
+					<a
+						href={`/${post.collection || collectionName}/${post.id}`}
+						class="no-underline flex flex-row items-center mb-2 group"
+					>
+						{post.data.cover && (
+							<div class="w-[4.5rem] h-[4.5rem] mr-4 mb-2 flex-shrink-0">
+								<Image
+									src={post.data.cover.src}
+									alt={post.data.cover.alt || post.data.title || "Post Image"}
+									format="webp"
+									width={128}
+									height={128}
+									class:list={[
+										"object-cover w-full h-full border border-theme-accent group-hover:rotate-6 transition-transform duration-500 m-0",
+										options,
+									]}
+									loading="lazy"
+								/>
+							</div>
+						)}
+						<h2 class="">{post.data.title}</h2>
+					</a>
+					<div class="flex flex-wrap mt-0 mb-3">
 						{post.data.tags?.map((tag: string) => (
 							<Tag tag={tag} size="sm" />
 						))}
 					</div>
-					</div>
-					<p>
+					<p class="text-lg mb-2">
 						{post.data.description}{" "}
 						<a
 							href={`/${post.collection || collectionName}/${post.id}`}
@@ -81,25 +85,27 @@ const options = { "rounded-theme": true };
 					</p>
 					{post.data.modDatetime && (
 						<p class="text-theme-primary font-mono text-sm">
-							updated: {post.data.modDatetime?.toDateString()}
+							updated: {new Date(post.data.modDatetime).toLocaleString()}
 						</p>
 					)}
-					<p class="text-theme-primary font-mono ml-2 text-sm">
+					<div class="border-l-4 border-theme-primary p-4 mb-3 ml-1 inline-block">
 						<Icon
 							name="ri:quill-pen-line"
 							size="16"
-							class="-mr-1 align-middle inline"
+							class="align-middle inline mr-0.5"
 						/>
-						Posted by{" "}
+						Posted by:
 						<Author
-							authorId={post.data.authorId || 1}
-							pubDateTime={post.data.pubDatetime}
+							authorId={post.data.authorId || ""}
+							pubDateTime={new Date(post.data.pubDatetime)}
+							class="ml-0.5 mt-2 inline font-mono not-italic"
 						/>
-					</p>
-
+					</div>
 				</article>
 			))
 		}
 	</section>
-	{SITE.postsPerPage < page?.total && <Pagination page={page} />}
+	<div class="flex justify-center">
+		{SITE.postsPerPage < page?.total && <Pagination page={page} />}
+	</div>
 </Layout>

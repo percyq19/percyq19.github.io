@@ -1,51 +1,28 @@
 ---
-/**
- * @description Component for rendering accessible tooltips with optional neon styling.
- * @param {Props} props - Tooltip configuration
- * @example
- * ```astro
- * // Basic tooltip
+/* Component for rendering accessible tooltips.
+ *
+ * Props:
+ * - triggerText?: string - Text to trigger tooltip
+ * - tooltipText?: string - Tooltip content
+ * - neonify?: boolean - Enable neon effect
+ * - class?: string - Additional CSS classes
+ *
+ * Example usage:
  * <Tooltip
  *   triggerText="Hover me"
- *   tooltipText="Tooltip content"
- * />
- *
- * // With neon effect
- * <Tooltip
- *   triggerText="Glowing tooltip"
- *   tooltipText="Neon styled content"
+ *   tooltipText="More information"
  *   neonify={true}
  * />
  *
- * // Using slots for custom content
- * <Tooltip tooltipText="Custom tooltip">
- *   <span slot="trigger">
- *     Hover for info
- *   </span>
- *   <span slot="content">
- *     <em>Custom formatted</em> tooltip content
- *   </span>
- * </Tooltip>
- *
- * // With custom styling
- * <Tooltip
- *   triggerText="Styled tooltip"
- *   tooltipText="Custom styled tooltip"
- *   class="my-custom-tooltip"
- * />
- * ```
- *
- * @note
- * - Accessible with proper ARIA attributes
- * - Optional neon glow effect with theme colors
- * - Supports both text and custom slot content
- * - Responsive positioning with transform
- * - Smooth hover transitions
- * - Theme-based styling and borders
- * - Arrow indicator for better UX
+ * Notes:
+ * - Proper ARIA attributes
+ * - Optional neon effect
+ * - Named slot support https://docs.astro.build/en/basics/astro-components/#named-slots
+ * - Responsive positioning
+ * - Smooth transitions
  */
 
-export interface Props {
+interface Props {
 	triggerText?: string;
 	tooltipText?: string;
 	neonify?: boolean | "true" | "false";
@@ -73,7 +50,7 @@ const options = { "rounded-theme": true };
 
 	<span
 		class:list={[
-			"absolute z-10 text-sm tracking-wide hidden group-hover:block font-semibold font-mono py-2 px-4 bottom-[40px] left-1/2 transform -translate-x-1/2 mb-2 whitespace-nowrap shadow-sm bg-theme-primary border-2",
+			"absolute z-10 text-sm tracking-wide hidden group-hover:block font-semibold font-mono p-3 bottom-[40px] left-1/2 transform -translate-x-1/2 mb-2 whitespace-nowrap shadow-sm bg-theme-primary border-2",
 			options,
 		]}
 	>
@@ -81,7 +58,7 @@ const options = { "rounded-theme": true };
 		<span
 			class:list={[
 				"absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-0 h-0",
-				"border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px]"
+				"border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px]",
 			]}></span>
 	</span>
 </span>

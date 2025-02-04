@@ -10,9 +10,7 @@ import Layout from "@layouts/Layout.astro";
 import Tags from "@components/Astro/Tags.astro";
 import Author from "@components/Astro/Author.astro";
 
-import placeholderImage from "@assets/redbg.png";
-
-export interface Props {
+interface Props {
 	collectionName: (typeof COLLECTION_NAMES_LIST)[number];
 	postId: string | number;
 	tags: string[] | undefined | null;
@@ -40,36 +38,39 @@ const { Content } = await render(entry);
 <Layout
 	title={entry.data.title}
 	description={entry.data.description}
-	logoSrc={""}
+	class="capitalize"
 >
-	<section>
+	<section class="mt-0 mb-2">
 		<article class:list={["prose", className]}>
-				{entry.data.subtitle && <p class="h2">{entry.data.subtitle}</p>}
+			{entry.data.subtitle && <p class="h2">{entry.data.subtitle}</p>}
 
-			<Image
-				src={entry.data.image || placeholderImage}
-				alt={entry.data.alt || entry.data.title}
-				class:list={["w-full h-auto max-h-50vh object-cover my-4", options]}
-				width={1200}
-				height={630}
-			/>
-
+			{
+				entry.data.cover && (
+					<Image
+						src={entry.data.cover.src}
+						alt={entry.data.cover.alt || entry.data.title}
+						class:list={[
+							"w-full h-auto max-h-[25rem] object-cover my-4",
+							options,
+						]}
+						width={600}
+					/>
+				)
+			}
 
 			<Author
 				authorId={entry.data.authorId}
 				pubDateTime={entry.data.pubDatetime}
 			/>
-						{
+			{
 				entry.data.tags && (
-					<span class="flex items-baseline mt-6">
+					<span class="flex items-baseline -mt-4 mb-14">
 						<Tags tags={entry.data.tags} />
 					</span>
 				)
 			}
 
-			<div class="h-8">
-			</div>
-			 <Content />
+			<Content />
 		</article>
 	</section>
 </Layout>

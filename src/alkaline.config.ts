@@ -111,8 +111,8 @@ export const NAVIGATION: NavEntry[] = [
 		text: "Features",
 	},
 	{
-		href: "/blog",
-		text: "Blog",
+		href: "/docs",
+		text: "Docs",
 	},
 	{
 		href: "/tags",
@@ -128,14 +128,6 @@ export const NAVIGATION: NavEntry[] = [
 	},
 ];
 
-export const BLOG: Blog = {
-	title: "Alkaline Blog",
-	author: AUTHORS[0].name,
-	description: SITE.description || "",
-	keywords: SITE.keywords,
-	postsPerPage: SITE.postsPerPage,
-};
-
 export const DOCS: Docs = {
 	title: "Alkaline Docs",
 	author: AUTHORS[0].name,
@@ -144,6 +136,6 @@ export const DOCS: Docs = {
 	postsPerPage: SITE.postsPerPage,
 };
 
-// Exports the name(s) of the collections as a list - must match the name of the collection in the data directory -> src\data
+// Exports the name(s) of the collections as a list - must match the name of the collection/dir in the data directory -> src\data
 
-export const COLLECTION_NAMES_LIST = ["blog", "docs"] as const;
+export const COLLECTION_NAMES_LIST = ["docs"] as const;

@@ -1,44 +1,54 @@
 ---
-/**
- * @description Component for generating comprehensive social media and SEO meta tags.
+/* Component for generating comprehensive social media and SEO meta tags.
  * Supports OpenGraph, Twitter Cards, and JSON-LD structured data.
  *
- * @param {SocialMetaProps} props
- * @example
- * ```astro
+ * Props:
+ * - title: string - Page title
+ * - description: string - Page description
+ * - type: "website" | "article" | "profile" | "book" | "product" - Content type
+ * - ogImage: string - Social share image URL
+ * - canonicalURL: string - Canonical URL for SEO
+ * - platform: string - Platform/site name
+ * - locale: string - Content locale (default: "en_US")
+ * - author: string - Content author
+ * - publishedTime: string - Content publish date
+ * - modifiedTime: string - Content last modified date
+ * - keywords: string[] - SEO keywords
+ * - section: string - Content section
+ * - twitterCardType: "summary_large_image" | "summary" - Twitter card style
+ *
+ * Example usage:
  * <SocialMeta
  *   title="My Page Title"
  *   description="Page description for social sharing"
  *   type="article"
- *   image="/social-share.jpg"
+ *   ogImage="/og-image.webp"
  *   author="John Doe"
  *   publishedTime="2024-03-20"
  *   platform="My Website"
  * />
- * ```
  *
- * @note
+ * Notes:
  * - Automatically generates appropriate JSON-LD based on content type
  * - Supports article, product, and website schemas
  * - Ensures all image URLs are absolute
  * - Handles both Twitter and OpenGraph meta tags
  * - Provides SEO-friendly canonical URLs
- *
- * @returns Meta tags for social sharing, SEO, and structured data
+ * - Includes structured data for better search results
  */
 
 import Favicon from "@components/Astro/head/Favicon.astro";
 
-export interface Props {
+interface Props {
 	title?: string;
 	description?: string;
 	type?: "website" | "article" | "profile" | "book" | "product";
-	image?: string;
-  favicon?: string;
+	ogImage?: string;
 	canonicalURL?: string;
 	platform?: string;
 	locale?: string;
 	logoSrc?: string;
+	productImageSrc?: string;
 	faviconSrc?: string;
 	author?: string;
 	publishedTime?: string;
@@ -52,22 +62,20 @@ const {
 	title,
 	description,
 	type = "website",
-	image,
+	ogImage,
 	canonicalURL = Astro.url.href,
 	platform,
 	locale = "en_US",
 	author,
 	logoSrc,
 	faviconSrc,
+	productImageSrc,
 	publishedTime,
 	modifiedTime,
 	keywords,
 	section,
 	twitterCardType = "summary_large_image",
 } = Astro.props;
-
-// Ensure image is a full URL
-const imageUrl = new URL(image ?? "", Astro.site);
 
 // JSON-LD Data
 let jsonLdData;
@@ -78,7 +86,7 @@ switch (type) {
 			"@context": "https://schema.org",
 			"@type": "Article",
 			headline: title,
-			image: imageUrl.href,
+			image: new URL(ogImage ?? "", Astro.site).href,
 			author: {
 				"@type": "Person",
 				name: author,
@@ -89,7 +97,7 @@ switch (type) {
 				...(logoSrc && {
 					logo: {
 						"@type": "ImageObject",
-						url: new URL(logoSrc, Astro.site),
+						url: new URL(logoSrc, Astro.site).href,
 					},
 				}),
 			},
@@ -107,7 +115,7 @@ switch (type) {
 			"@context": "https://schema.org",
 			"@type": "Product",
 			name: title,
-			image: imageUrl.href,
+			image: new URL(productImageSrc ?? "", Astro.site).href,
 			description: description,
 			// Add more product-specific properties here if needed
 		};
@@ -142,10 +150,12 @@ Object.entries(jsonLdData).forEach(([key, value]) => {
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={imageUrl} />
+<meta property="og:image" content={new URL(ogImage ?? "", Astro.site).href} />
 <meta property="og:image:alt" content={title} />
 <meta property="og:site_name" content={platform} />
 <meta property="og:locale" content={locale} />
+<meta property="og:logo" content={new URL(logoSrc ?? "", Astro.site).href} />
+
 {
 	publishedTime && (
 		<meta property="article:published_time" content={publishedTime} />
@@ -156,15 +166,22 @@ Object.entries(jsonLdData).forEach(([key, value]) => {
 		<meta property="article:modified_time" content={modifiedTime} />
 	)
 }
-{keywords && keywords.map((tag) => <meta property="article:tag" content={tag} />)}
+{
+	keywords &&
+		keywords.map((tag) => <meta property="article:tag" content={tag} />)
+}
 {section && <meta property="article:section" content={section} />}
 
 <!-- Twitter -->
 <meta name="twitter:card" content={twitterCardType} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image" content={new URL(ogImage ?? "", Astro.site).href} />
 <meta name="twitter:image:alt" content={title} />
 
 <!-- JSON-LD -->
-<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLdData)} />
+<script
+	is:inline
+	type="application/ld+json"
+	set:html={JSON.stringify(jsonLdData)}
+/>

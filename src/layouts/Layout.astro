@@ -1,6 +1,4 @@
 ---
-
-
 import { SITE, NAVIGATION } from "src/alkaline.config";
 
 import { ClientRouter } from "astro:transitions";
@@ -16,7 +14,9 @@ import Title from "@components/Astro/Title.astro";
 import BackToTop from "@components/Astro/BackToTop.astro";
 import Footer from "@components/Astro/Footer.astro";
 
-export interface Props {
+import logo from "@assets/logo.webp";
+
+interface Props {
 	title?: string;
 	author?: string;
 	description?: string;
@@ -25,21 +25,20 @@ export interface Props {
 	publishedTime?: string;
 	modifiedTime?: string;
 	canonicalUrl?: string;
-	logoSrc?: string;
 	faviconSrc?: string;
 	showTitleBackground?: boolean;
-	class?: string | undefined;}
+	class?: string | undefined;
+}
 
 const {
 	title = SITE.title,
 	author = SITE.author,
 	description = SITE.description || SITE.title,
+	faviconSrc = SITE.faviconSrc,
 	keywords = SITE.keywords,
 	ogImage = SITE.ogImage,
 	canonicalUrl = SITE.canonicalUrl,
-	logoSrc = SITE.logoSrc || null,
 	showTitleBackground = SITE.showTitleBackground || false,
-	faviconSrc = SITE.faviconSrc,
 	publishedTime = "",
 	modifiedTime = "",
 	class: className = "",
@@ -53,12 +52,14 @@ const metaTags = [
 		name: "robots",
 		content: `index, ${SITE.disableIndexing ? "noindex, nofollow" : "index, follow"}`,
 	},
-
 ];
 const fonts = SITE.fonts || [];
 const options = {
-  "rounded-theme": true,
-}
+	"rounded-theme": true,
+};
+
+// @ts-ignore
+const headerLogo = typeof logo === "undefined" ? null : logo; // guard against no logo
 ---
 
 <html lang="en">
@@ -68,7 +69,7 @@ const options = {
 		<SocialMeta
 			title={title}
 			author={author}
-			image={ogImage}
+			ogImage={ogImage || SITE.ogImage}
 			description={description}
 			keywords={keywords}
 			canonicalURL={canonicalUrl}
@@ -80,12 +81,18 @@ const options = {
 		{/*<ResourceLinks />*/}
 	</head>
 	<body class:list={[options, className]}>
-		<div class="flex flex-col min-h-screen">
-			<Title
-				title={title}
-				logoSrc={logoSrc ?? ""}
-				showTitleBackground={showTitleBackground}
-			/>
+		<div class="flex flex-col min-h-screen mt-0 pt-0">
+			{
+				headerLogo ? (
+					<Title
+						title={title}
+						showTitleBackground={showTitleBackground}
+						logoImg={headerLogo}
+					/>
+				) : (
+					<Title title={title} showTitleBackground={showTitleBackground} />
+				)
+			}
 			<Nav links={NAVIGATION} />
 			<main class="flex-grow">
 				<!-- content -->

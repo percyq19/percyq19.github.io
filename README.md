@@ -84,7 +84,7 @@ npm run...
     "tech:support": "rm node_modules .astro .dist -rfv && npm i && npm run build:themes && astro dev"
 ```
 
-*👋 - Note that all scripts *except* `build` will check for theme changes and rebuild as necessary. The `build:themes` script causes issues on on some platforms and/or hosting providers.*
+**👋 - Note that all scripts *except* `build` will check for theme changes and rebuild as necessary. The `build:themes` script causes issues on on some platforms and/or hosting providers.**
 
 ## Customizing Themes
 
