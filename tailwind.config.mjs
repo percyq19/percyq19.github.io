@@ -1,3 +1,6 @@
+// Tailwind config -> https://v3.tailwindcss.com/docs/theme
+// V4 - coming soon
+
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
 const colors = require("tailwindcss/colors");
@@ -13,10 +16,6 @@ export default {
 			white: colors.white,
 			black: colors.black,
 			transparent: 'transparent',
-			theme: {
-				primary: "var(--color-accent)",
-				secondary: "var(--color-accent-alt)",
-			},
 		},
 		backgroundColor: {
 			slate: colors.slate,
@@ -31,33 +30,39 @@ export default {
 			},
 		},
 		backgroundImage: {
+			// bg-gradient-linear
 			"gradient-linear": generateGradient({
 				type: "linear",
 				angle: 145,
 				colors: ["var(--color-background)", "var(--color-gradient)"],
 			}),
+			// bg-gradient-radial
 			"gradient-radial": generateGradient({
 				type: "radial",
 				shape: "ellipse",
 				position: "center right",
 				colors: [
-					"var(--color-background)",
+					"var(--color-accent-alt)",
 					"var(--color-accent)",
 					"var(--color-text)",
-					"var(--color-shadow)",
+					"var(--color-gradient)",
+					"var(--color-background)",
 				],
 			}),
 		},
 		borderColor: {
-			...colors.slate,
+			slate:colors.slate,
 			white: colors.white,
 			black: colors.black,
 			transparent: 'transparent',
 			theme: {
-				primary: "var(--color-accent)",
-				secondary: "var(--color-accent-alt)",
+				primary: "var(--color-text)",
+				secondary: "var(--color-background)",
+				accent: "var(--color-accent)",
+				"accent-alt": "var(--color-accent-alt)",
 			},
 		},
+
 		boxShadowColor: {
 			theme: {
 				primary: "var(--color-shadow)",
@@ -78,8 +83,11 @@ export default {
 		},
 		textDecorationColor: {
 			theme: {
-				primary: "var(--color-accent)",
-				secondary: "var(--color-accent-alt)",
+				//
+				primary: "var(--color-text)",
+				secondary: "var(--color-background)",
+				accent: "var(--color-accent)",
+				"accent-alt": "var(--color-accent-alt)",
 			},
 		},
 		fontFamily: {
@@ -119,11 +127,6 @@ export default {
 		},
 	},
 	plugins: [require("@tailwindcss/typography")],
-	safelist: [
-		'bg-slate-400',
-		'text-white',
-		// Add other dynamic classes here
-	],
 };
 
 /**

@@ -1,10 +1,11 @@
+// Types used throughout the theme, update as needed
+
 import type { ShikiConfig } from "astro";
 import type { GoogleFontFamily } from "./google-fonts";
 
 //  Accepts GoogleFontFamily for Google Fonts types(about 250 listed).
-//  Accept any other string if Google Fonts types doesn't import - comment out the import to remove the font hints
-type FontFamily =
-	| GoogleFontFamily
+//  Accept any other string if Google Fonts types doesn't import - comment out the GoogleFontFamily import to remove the font hints
+type FontFamily = GoogleFontFamily
 	| (GoogleFontFamily extends never ? string : never);
 
 export type Font = {
@@ -16,14 +17,14 @@ export type Font = {
 
 // these correspond to icon names for the remix icon library, they may need updated if you change the icon library
 export const Platforms =
-  ["behance", "bluesky", "codepen", "discord",
-  "dribbble", "email", "evernote", "facebook", "flickr", "github",
-  "gitlab", "global", "instagram", "line", "linkedin",
-  "mastodon", "medium", "messenger", "notion", "patreon", "pinterest",
-  "reddit", "rss", "skype", "slack", "snapchat",
-  "soundcloud", "spotify", "telegram", "threads", "tiktok",
-  "trello", "tumblr", "twitch", "twitter", "twitter-x", "vimeo",
-  "vk", "web", "wechat", "whatsapp", "youtube"] as const;
+	["behance", "bluesky", "codepen", "discord",
+		"dribbble", "email", "evernote", "facebook", "flickr", "github",
+		"gitlab", "global", "instagram", "line", "linkedin",
+		"mastodon", "medium", "messenger", "notion", "patreon", "pinterest",
+		"reddit", "rss", "skype", "slack", "snapchat",
+		"soundcloud", "spotify", "telegram", "threads", "tiktok",
+		"trello", "tumblr", "twitch", "twitter", "twitter-x", "vimeo",
+		"vk", "web", "wechat", "whatsapp", "youtube"] as const;
 
 export type Socials = {
 	platform: (typeof Platforms)[number] | string;

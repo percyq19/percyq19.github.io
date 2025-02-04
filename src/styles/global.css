@@ -1,3 +1,7 @@
+/*
+This file is used to define global styles for the application. Note the 'prose' section is used to style markdown content. The 'helper classes' section is used to define utility classes that can be used in the application.
+*/
+
 @import "./themes.css";
 @import "./animations.css";
 
@@ -11,7 +15,6 @@
 	html {
 		@apply antialiased;
 		@apply min-h-[100svh] w-full flex flex-col items-center bg-theme-primary text-theme-primary bg-gradient-linear font-sans my-0 mx-auto;
-
 	}
 
 	body {
@@ -25,7 +28,6 @@
 	article {
 		@apply p-1 m-1 md:p-2 md:m-2;
 	}
-
 
 	/** Typography **/
 	h1,
@@ -182,7 +184,7 @@
 	.prose .h5,
 	.prose h6,
 	.prose .h6 {
-		@apply font-bold ;
+		@apply font-bold;
 	}
 
 	.prose h1,
@@ -254,15 +256,7 @@
 		@apply bg-theme-secondary text-theme-secondary px-1 inline-block;
 	}
 
-	.prose
-		strong:not(
-			h1 strong,
-			h2 strong,
-			h3 strong,
-			h4 strong,
-			h5 strong,
-			h6 strong
-		) {
+	.prose strong:not(h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong) {
 		@apply text-theme-primary font-extralight relative tracking-wider; /* Changed to font-semibold and font-sans for readability */
 	}
 
@@ -270,8 +264,6 @@
 		@apply bg-theme-secondary text-theme-secondary;
 	}
 }
-
-
 
 /** helper classes **/
 

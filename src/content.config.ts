@@ -1,3 +1,9 @@
+/*
+This file is used to define the schema for your content collections.
+You shouldn't have to update too much here, but you can add additional fields or override defaults if needed.
+https://docs.astro.build/en/guides/content-collections/
+*/
+
 import { SITE, COLLECTION_NAMES_LIST } from "./alkaline.config";
 // @ts-ignore
 import { defineCollection, z } from "astro:content";
@@ -38,15 +44,15 @@ const postCollectionSchema = {
 
 // Advanced customization options //
 // These options are useful for granular customization of multiple collections //
-
+// use destructuring for overrides or to add additional fields //
 
 let collectionSchemas: { [key: string]: any } = {};
 
-// use destructuring for overrides or to add additional fields
+// loops through each collection and define the schema, and allows for overrides
 // @ts-ignore
 collectionNames.forEach((collectionName) => {
 	collectionSchemas[collectionName] = defineCollection({
-	loader: glob({ pattern: '*.md*', base: "./src/data/"+collectionName.toLowerCase() }),
+		loader: glob({ pattern: '*.md*', base: "./src/data/" + collectionName.toLowerCase() }),
 		schema: () =>
 			z.object({
 				...postCollectionSchema,
@@ -65,11 +71,11 @@ collectionNames.forEach((collectionName) => {
 
 				// title: z
 				// 	.string()
-				// 	.default(collectionName === "blog" ? BLOG.title : DOCS.title)
+				// 	.default(collectionName === "collectionOne" ? COLLECTION_ONE.title : "")
 				// 	.optional(),
 			}),
 	});
-console.log("🚀 ~ collectionSchemas:", './src/data/'+collectionName.toLowerCase() )
+	console.log("🚀 ~ collectionSchemas:", './src/data/' + collectionName.toLowerCase())
 });
 
 

@@ -1,3 +1,5 @@
+// builds themes from the theme.css file. It also builds the types (based on the theme names - check the bottom /src/Types/types.ts). It also creates a themeNames file.
+
 import css from 'css';
 import { readFile, writeFile, mkdir } from 'fs/promises';
 import path from 'path';

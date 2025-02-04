@@ -1,8 +1,7 @@
 /**
  * google-fonts.d.ts
  * This file contains a curated selection of top Google font families as TypeScript types.
- * Created by Jared Truscott, compiled by ChatGPT (OpenAI GPT-4)
- * Date: 2024-09-09
+ * Created by Jared Truscott
  * 'There probably was a better way to do this'
  */
 
