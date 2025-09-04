@@ -1,163 +1,83 @@
-# Alkaline 🧪
+# Alkaline
 
-A neutral base for your next creation - Alkaline is a modern Astro theme focused on developer experience and clean design.
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Astro](https://img.shields.io/badge/Astro-5.2.4-BC52EE?logo=astro)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.17-38B2AC?logo=tailwindcss)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)
+![Node](https://img.shields.io/badge/Node-18+-339933?logo=node.js)
 
-**🛑 Alkaline assumes you have some familiarity with Astro and Tailwind CSS. If you're new to Astro, I recommend checking out the [Astro starter documentation](https://docs.astro.build/en/basics/astro-pages/). Astro also has a really great [general reference guide](https://docs.astro.build/en/basics/astro-pages/).**
+👉 **[Live Demo](https://alkaline-site.vercel.app/)**
 
-## What is this?
+**Alkaline** is a sleek, Astro-powered theme designed for speed, clarity, and low-JavaScript sites.
+It ships with **14 built-in color themes**, **blog + docs layouts**, and **SEO optimizations**—all while keeping dependencies minimal.
 
-Alkaline is an Astro-based theme that provides:
+---
 
-- 🎨 14 built-in color themes with dark/light mode support
-- 📝 Blog and documentation setup out of the box
-- 🔧 Minimal dependencies
-- 🚀 SEO-friendly with Open Graph support
-- ⚡️ Near Zero-JS by default (but JS-framework friendly)
-- 📦 MDX support with syntax highlighting
-- 🎯 TypeScript & Tailwind included
-- 🍒 Statically generated with Astro, with a focus on developer experience and clean design
-- 🥇 Fully free, open source and MIT licensed
+## 🚀 Features
 
-## Getting Started
+- ⚡ **Near Zero-JS** by default for blazing fast performance
+- 🎨 **14 color themes** with light/dark support
+- 📝 **Blog + Docs layouts** out of the box
+- 🔎 **SEO ready** (OpenGraph + meta tags included)
+- 🧩 **TypeScript prop typing** for safer components
+- 📖 **JSDoc comments** (`@description`, `@param`, etc.) for built-in code documentation
+- 🛠️ **TailwindCSS** for easy styling and customization
 
-### Clone the repository
+---
 
-```bash
-git clone https://github.com/TruJared/alkaline
-cd alkaline-astro-theme
-```
+## 🖌️ Sample Themes
 
-### Install dependencies
+<p align="center">
+  <img src="screenshots/theme-light.png" alt="Light theme" width="45%" />
+  <img src="screenshots/theme-dark.png" alt="Dark theme" width="45%" />
+</p>
 
-```bash
-npm install
-```
+<p align="center">
+  <img src="screenshots/theme-oceanic.png" alt="Oceanic theme" width="45%" />
+  <img src="screenshots/theme-sunset.png" alt="Sunset theme" width="45%" />
+</p>
 
-### Run the development server
+---
 
-```bash
-npm run dev
-```
+## 📦 Getting Started
 
-## Project Structure
+Clone and run locally:
 
-```
-alkaline/
-├── src/
-│   ├── assets/        # Images and static assets
-│   ├── components/    # UI components
-│   ├── data/          # Content - E.G. Blog posts
-│   ├── layouts/       # Page layouts and templates
-│   ├── pages/         # Astro pages and routes (file-based routing)
-│   ├── styles/        # Theme files and global styles
-│   ├── utils/         # Utility functions - not really used outside of the build process
-│   ├── alkaline.config.ts/   # START HERE - the main config files
-│   └── content.config.ts/    # Schema for the content collections
-├── public/            # Static assets
-├── astro.config.mjs   # Astro configuration
-├── tailwind.config.js # Tailwind CSS configuration
-└── package.json       # Project dependencies
-```
+\`\`\`bash
+git clone <https://github.com/AMagicianNamedGob/alkaline>
+cd alkaline
+pnpm install
+pnpm dev
+\`\`\`
 
-## Configuration
+Open `http://localhost:4321` in your browser.
 
-Alkaline is designed to be easily configurable. The main configuration files are:
+---
 
-```typescript
-src/alkaline.config.ts    // Site-wide settings
-src/content.config.ts     // Content collection schemas
-src/styles/themes.css     // Themes colors and options
-src/styles/global.css     // Global styles
-```
+## 🔮 Roadmap
 
-## Available Scripts
+Alkaline is stable as-is, but the **future focus is a Next.js rebuild**.
+That means this repo is a foundation and reference point, not a long-term home for contributions.
 
-```bash
-npm run...
-    "dev": "npm run build:themes && astro dev",
-    "start": "npm run build:themes && astro dev",
-    "build": "npm run astro check && astro build",
-    "check": "npm run build:themes && astro check",
-    "preview": "npm run build:themes && astro preview",
-    "astro": "astro",
-    "build:themes": "node ./src/utils/buildThemes.mjs",
-    "tech:support": "rm node_modules .astro .dist -rfv && npm i && npm run build:themes && astro dev"
-```
+Planned steps:
 
-**👋 - Note that all scripts *except* `build` will check for theme changes and rebuild as necessary. The `build:themes` script causes issues on on some platforms and/or hosting providers.**
+- [x] Live demo site
+- [ ] Next.js rebuild (Alkaline v2)
+- [ ] Accessibility refinements
 
-## Customizing Themes
+---
 
-Alkaline comes with 14 built-in themes. You can:
+## 🤝 Contributing
 
-1. Switch themes using the theme picker in the top navigation.
-2. Create new themes by adding them to `src/styles/themes/`.
-3. Modify existing themes in `src/styles/themes/`.
+Right now, **pull requests aren’t being accepted**, since the Next.js rebuild will change the project’s direction.
+That said, **discussions and feedback are welcome**—feel free to open an [issue](../../issues) if you have ideas, requests, or spot a bug.
 
-Themes are defined in CSS custom properties, and very easy to modify or create your own.  Here's an example of the "Old Couch" theme:
+---
 
-```css
-.theme-old-couch {
- --color-background: #1a110d;
- --color-gradient: #3d2a20;
- --color-text: #e6b785;
- --color-accent: #ff7f00;
- --color-accent-alt: #a85400;
- --color-shadow: hsla(0, 0%, 0%, 0.6);
- /* options */
- --border-radius: 0.25rem;
-}
-```
+## 📜 License
 
- **👋 - See [themes.css](https://github.com/TruJared/alkaline/blob/main/src/styles/themes.css) for tips on color selections for custom themes.**
+MIT © [AMagicianNamedGob](https://github.com/AMagicianNamedGob)
 
-## Content Management
+---
 
-Create blog posts and documentation by adding MDX files to, or create your own content collection. The default content directories are:
-
-```
-src/content/blog/    // For blog posts
-src/content/docs/    // For documentation
-```
-
-## Components
-
-Alkaline includes a variety of pre-built components:
-
-- `<Card />` - Versatile card component with multiple variants
-- `<PageHeader />` - Hero section with optional image and background support
-- `<FeaturesList />` - Display feature lists with descriptions
-- `<CodeCopy />` - Code blocks with syntax highlighting and copy button
-- `<ToggleTheme/>` - Switch between themes
-- And many more...
-
-## Iconography
-
-Alkaline uses the awesome [Astro Icon](https://github.com/natemoo-re/astro-icon) integration by [Nate Moore](https://github.com/natemoo-re). This allows for flexible and easy-to-use icons in your project. Astro Icon allows for using custom svg's or any of the sets on [Iconify](https://icon-sets.iconify.design/).
-
-Currently Alkaline uses the Remix Icon set. You can find a list of [available icons](https://remixicon.com/) at the Remix Icon website.
-
-## Contributing
-
-⏲️ coming soon
-
-<!-- You're welcome to contribute to this project, but please note that Alkaline is not _quite_ ready for public consumption yet. I still may have some changes to make. -->
-
-## To-Do
-
-- [ ] Docker support
-- [ ] Review intellisense for Astro
-- [ ] Upgrade to Tailwind 4.0
-- [ ] Work around for the build:themes script with some hosts
-
-## License
-
-MIT
-
-## Need Help?
-
-file a bug report
-
-email
-
-bluesky
+**Built with ❤️ using [Astro](https://astro.build/)**
