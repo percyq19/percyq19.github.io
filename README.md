@@ -22,6 +22,14 @@ It ships with **14 built-in color themes**, **blog + docs layouts**, and **SEO o
 - 🧩 **TypeScript prop typing** for safer components
 - 📖 **JSDoc comments** (`@description`, `@param`, etc.) for built-in code documentation
 - 🛠️ **TailwindCSS** for easy styling and customization
+- 🤯 **24 components** to help you get started
+
+### 📊 Performance & Accessibility
+
+Alkaline is built with a performance-first, semantic HTML approach.
+It consistently scores **100** in Lighthouse audits right out of the box.
+
+![Lighthouse score 100](screenshots/lighthouse.png "Alkaline Lighthouse report")
 
 ---
 
@@ -29,12 +37,12 @@ It ships with **14 built-in color themes**, **blog + docs layouts**, and **SEO o
 
 <p align="center">
   <img src="screenshots/theme-light.png" alt="Light theme" width="45%" />
-  <img src="screenshots/theme-dark.png" alt="Dark theme" width="45%" />
+  <img src="screenshots/theme-dark.png" alt="Dark theme" width="45%"/>
 </p>
 
 <p align="center">
-  <img src="screenshots/theme-oceanic.png" alt="Oceanic theme" width="45%" />
-  <img src="screenshots/theme-sunset.png" alt="Sunset theme" width="45%" />
+  <img src="screenshots/theme-old-couch.png" alt="Old Couch theme" width="45%" />
+  <img src="screenshots/theme-pop-punk.png" alt="Pop Punk theme" width="45%" />
 </p>
 
 ---
