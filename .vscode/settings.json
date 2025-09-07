@@ -1,0 +1,35 @@
+// hopefully this makes astro file editing a bit better
+{
+    "[astro]": {
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": false
+        },
+        "editor.suggestOnTriggerCharacters": true,
+        "editor.suggest.showKeywords": true,
+        "editor.suggest.showProperties": true,
+        "editor.suggest.showVariables": true,
+        "editor.suggest.showSnippets": false,
+        "editor.wordBasedSuggestions": "off",
+        "editor.parameterHints.enabled": true,
+        "editor.suggestSelection": "first",
+        "editor.suggest.showMethods": true,
+        "editor.suggest.showFunctions": true,
+        "editor.suggest.showClasses": true,
+        "editor.suggest.showInterfaces": true,
+        "editor.suggest.showStructs": true,
+        "editor.suggest.showEnums": true,
+        "editor.suggest.showModules": true,
+        "editor.suggest.showFields": true,
+        "editor.suggest.showEvents": true,
+        "editor.suggest.showOperators": true,
+        "editor.suggest.showReferences": true,
+        "editor.suggest.showTypeParameters": true,
+        "editor.suggest.matchOnWordStartOnly": true,
+        "editor.suggest.showStatusBar": true
+    },
+    "cSpell.words": [
+        "Goldblum"
+    ]
+}

@@ -7,11 +7,11 @@ import type { Site, Author, Socials, NavEntry, Blog } from "./Types/types";
  * - There are quite a few settings, but they allow for a vast amount of automatization across the theme
  * @exports SITE - The site configuration object
  * @exports NAVIGATION - The navigation configuration object
-//  * @exports BLOG - The blog configuration object
- * @exports DOCS - The docs configuration object
+ * @exports BLOG - The blog configuration object
  */
 
 //  SITE socials - used for the site footer
+// See: ./Types/types.ts for more info on author socials
 export const socials: Socials[] = [
 	{
 		platform: "email",
@@ -35,7 +35,7 @@ export const socials: Socials[] = [
 	}
 ];
 
-// use in development to easily see all author socials at once, comment out in production
+// use in development to easily see all author socials at once, not useful in production, I suggest commenting this out in production
 export const allSocials: Socials[] = Platforms.map((platform) => ({
 	platform,
 	url: `https://${platform}.com`,
@@ -51,6 +51,7 @@ export const AUTHORS: Author[] = [
 		socials: socials,
 		email: 'jared@jaredmakes.com'
 	},
+	// example of a 2nd author with all socials - replace with your own author(s) or remove if not needed
 	{
 		id: 2,
 		name: "Jeff Goldblum",
@@ -73,9 +74,10 @@ export const SITE: Site = {
 	locale: "en_US",
 	postsPerPage: 5,
 	shikiConfig: {
-		theme: "github-dark",
+		// ctrl+space for theme suggestions
+		theme: "night-owl",
 	},
-	// * edit or remove ./Types/google-fonts.d.ts to add/remove font types * //
+	// I provide  Types for many of the top Google Fonts, edit or remove ./Types/google-fonts.d.ts to add/remove font types
 	fonts: [
 		{
 			typeface: "serif",
@@ -94,8 +96,10 @@ export const SITE: Site = {
 			fontWeights: [400, 500, 700],
 		},
 	],
-	// Trouble with the fonts? It's likely because a font family name isn't EXACTLY correct or the font weights you're trying to fetch are not supported for that font family. For example, setting Roboto with fontWeights: ["400...700"] will not work because Roboto only supports 400, 500, and 700.
+	// Trouble with the fonts? It's likely because a font family name isn't EXACTLY correct or the font weights you're trying to fetch are not supported for that font family. For example, setting Fira Code with fontWeights: ["400...700"] will not work because Fira Code only supports 400, 500, and 700.
 };
+
+// TODO: "slug" is the more appropriate term  here but would require more changes throughout the theme
 
 export const NAVIGATION: NavEntry[] = [
 	{
@@ -129,12 +133,12 @@ export const NAVIGATION: NavEntry[] = [
 ];
 
 export const BLOG: Blog = {
-	title: "Alkaline Docs",
+	title: "My Blog",
 	author: AUTHORS[0].name,
 	description: SITE.description || "",
 	keywords: SITE.keywords,
 	postsPerPage: SITE.postsPerPage,
 };
 
-// export the name(s) of the collections as a list - must match the name of the collection in the content directory
+// export the name(s) of the collections as a list - must match the name of the collection in the ./Types/types.ts file
 export const COLLECTION_NAMES_LIST = ["blog"] as const;

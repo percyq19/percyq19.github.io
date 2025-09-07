@@ -1,3 +1,5 @@
+//No need to make any changes here: This is the configuration for the robots.txt file, which is used to control and manage how search engines crawl and index your website.
+
 import type { RobotsTxtOptions } from 'astro-robots-txt';
 import { SITE } from '../alkaline.config';
 

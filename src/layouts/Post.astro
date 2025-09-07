@@ -1,4 +1,6 @@
 ---
+// Layout component that wraps around pages and blog posts, providing consistent structure and styling. you can read more about it here: https://docs.astro.build/en/guides/layouts/
+
 import type { CollectionEntry } from "astro:content";
 
 import { COLLECTION_NAMES_LIST } from "src/alkaline.config";
@@ -10,7 +12,7 @@ import Layout from "@layouts/Layout.astro";
 import Tags from "@components/Astro/Tags.astro";
 import Author from "@components/Astro/Author.astro";
 
-export interface Props {
+interface Props {
   collectionName: (typeof COLLECTION_NAMES_LIST)[number];
   postId: string | number;
   tags: string[] | undefined | null;

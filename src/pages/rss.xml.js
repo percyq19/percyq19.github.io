@@ -1,3 +1,5 @@
+// Do not touch this file: This file generates the RSS feed for your blog. It pulls in all posts from the collections specified in COLLECTION_NAMES_LIST and formats them into an RSS feed.
+
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { SITE, BLOG } from "@config";

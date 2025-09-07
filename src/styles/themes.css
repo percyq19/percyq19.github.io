@@ -3,9 +3,14 @@
 
 	Options are not required for a theme to work. I added them for the sake of example. For example, some themes have a border-radius, others do not.
 
-	if you add any options, make sure to add them to the tailwind.config.js file as well, see border-radius for example
+	If you add any options, make sure to add them to the tailwind.config.js file as well,
+	see border-radius for example. You can then use the options in your components,
+	you'll find many examples of border-radius in the components folder.
 
 	The bottom of this file has an extensive list of tips to help you create your own themes.
+	You can also visit https://color-genie.site to help you generate color palettes based on a single color. Copy paste the values you want by clicking on the generate code button.
+
+ NOTE: you will need to restart your dev server to see changes reflected in the app.
 */
 
 :root,
@@ -13,8 +18,10 @@
 	--color-background: #ffffff;
 	--color-gradient: #f0e6d2;
 	--color-text: #3a3a3a;
-	--color-accent: #2c3e50; /* Darker blue-gray, less dominant */
-	--color-accent-alt: #d35400; /* Deeper orange, complementing the image */
+	--color-accent: #2c3e50;
+	/* Darker blue-gray, less dominant */
+	--color-accent-alt: #d35400;
+	/* Deeper orange, complementing the image */
 	--color-shadow: #1b2838;
 	/* options */
 }
@@ -25,7 +32,8 @@
 	--color-text: #f0e6d2;
 	--color-accent: #3498db;
 	--color-accent-alt: #e67e22;
-	--color-shadow: #0a1721; /* Darker shadow for contrast */
+	--color-shadow: #0a1721;
+	/* Darker shadow for contrast */
 	/* options */
 	--border-radius: 0.4rem;
 }
@@ -96,11 +104,11 @@
 }
 
 .theme-peppermint {
-	--color-background: #F4F4F4;
-	--color-gradient:#fff3f3;
+	--color-background: #f4f4f4;
+	--color-gradient: #fff3f3;
 	--color-text: #2a2a2a;
-	--color-accent: #E4283F;
-	--color-accent-alt:#922838;
+	--color-accent: #e4283f;
+	--color-accent-alt: #922838;
 	--color-shadow: hsla(0, 100%, 50%, 0.15);
 	/* options */
 	--border-radius: 0.8rem;
@@ -183,11 +191,11 @@ Accent colors (--color-accent and --color-accent-alt) should contrast with the b
 - Shadow Colors:
 
 Shadow colors (--color-shadow) should be darker shades of the background or gradient colors to create depth.
-Example: If the background is light, the shadow could be a darker shade of the same color. I've used a very bright contrasting colors to make a 'glow' effect. See 'pop-punk' and 'neon-bliss' themes for examples.
+Example: If the background is light, the shadow could be a darker shade of the same color. I've used a very bright contrasting colors to make a 'glow' effect. See 'pop-punk' and 'neon-bliss' themes for examples. If you want no shadow, you can use a transparent color like hsla(0, 0%, 0%, 0).
 
 - Optional Properties:
 
-Include optional properties like --border-radius to add unique styles to specific themes.
+Include optional properties like --border-radius to add unique styles to specific themes. You can pass the props into each individual component as needed.
 Example: Rounded corners can be specified with --border-radius.
 
 - Consistency:

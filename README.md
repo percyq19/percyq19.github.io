@@ -9,18 +9,15 @@
 👉 **[Live Demo](https://alkaline-site.vercel.app/)**
 
 **Alkaline** is a sleek, Astro-powered theme designed for speed, clarity, and low-JavaScript sites.
-It ships with **14 built-in color themes**, **blog + docs layouts**, and **SEO optimizations**—all while keeping dependencies minimal.
-
----
+It ships with **14 built-in color themes**, **multiple layouts**, and **SEO optimizations**—all while keeping dependencies minimal.
 
 ## 🚀 Features
 
 - ⚡ **Near Zero-JS** by default for blazing fast performance
 - 🎨 **14 color themes** with light/dark support
-- 📝 **Blog + Docs layouts** out of the box
+- 📝 **Blog layout** out of the box
 - 🔎 **SEO ready** (OpenGraph + meta tags included)
-- 🧩 **TypeScript prop typing** for safer components
-- 📖 **JSDoc comments** (`@description`, `@param`, etc.) for built-in code documentation
+- 📖 **Documentation** provided in each and every component
 - 🛠️ **TailwindCSS** for easy styling and customization
 - 🤯 **24 components** to help you get started
 
@@ -30,8 +27,6 @@ Alkaline is built with a performance-first, semantic HTML approach.
 It consistently scores **100** in Lighthouse audits right out of the box.
 
 ![Lighthouse score 100](screenshots/lighthouse.png "Alkaline Lighthouse report")
-
----
 
 ## 🖌️ Sample Themes
 
@@ -45,22 +40,24 @@ It consistently scores **100** in Lighthouse audits right out of the box.
   <img src="screenshots/theme-pop-punk.png" alt="Pop Punk theme" width="45%" />
 </p>
 
----
-
 ## 📦 Getting Started
 
 Clone and run locally:
 
-\`\`\`bash
-git clone <https://github.com/AMagicianNamedGob/alkaline>
+```bash
+git clone https://github.com/AMagicianNamedGob/alkaline
 cd alkaline
-pnpm install
-pnpm dev
-\`\`\`
+pnpm install // or npm install
+pnpm dev // or npm run dev
+```
 
 Open `http://localhost:4321` in your browser.
 
----
+## 🛠️ Configuration
+
+## 👻 Dependencies
+
+Astro-Icon - <https://github.com/natemoo-re/astro-icon>
 
 ## 🔮 Roadmap
 
@@ -70,17 +67,15 @@ That means this repo is a foundation and reference point, not a long-term home f
 Planned steps:
 
 - [x] Live demo site
+- [x] Accessibility refinements
+- [ ] Potential upgrade to TailwindCSS v4
 - [ ] Next.js rebuild (Alkaline v2)
-- [ ] Accessibility refinements
-
----
 
 ## 🤝 Contributing
 
-Right now, **pull requests aren’t being accepted**, since the Next.js rebuild will change the project’s direction.
-That said, **discussions and feedback are welcome**—feel free to open an [issue](../../issues) if you have ideas, requests, or spot a bug.
+Right now, **pull requests aren’t being accepted**, since the Next.js rebuild will change the project’s direction, but that may change based on interest and demand.
 
----
+That said, **discussions and feedback are welcome**—feel free to open an [issue](../../issues) if you have ideas, requests, or spot a bug.
 
 ## 📜 License
 
@@ -88,4 +83,4 @@ MIT © [AMagicianNamedGob](https://github.com/AMagicianNamedGob)
 
 ---
 
-**Built with ❤️ using [Astro](https://astro.build/)**
+<span style="margin-left:2em"> **Built with [❤️love](https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley), [🧑‍🚀Astro](https://astro.build/) and [🐻‍❄️Polar](https://polarseltzer.com/)**</span>

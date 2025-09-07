@@ -57,7 +57,7 @@ collectionNames.forEach((collectionName) => {
 			z.object({
 				...postCollectionSchema,
 
-				// * -- Example overrides -- * //
+				// *  Example overrides  * //
 
 				// * -- Add new field to all collections -- * //
 

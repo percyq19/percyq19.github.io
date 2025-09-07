@@ -23,7 +23,8 @@ export type Font = {
 	includeItalic?: boolean;
 };
 
-// these correspond to icon names for the remix icon library, they may need updated if you change the icon library
+// these correspond to icon names for the remix icon library, they may need updated if you change the icon library see https://www.astroicon.dev/guides/customization/ for more info.
+//
 export const Platforms =
 	["behance", "bluesky", "codepen", "discord",
 		"dribbble", "email", "evernote", "facebook", "flickr", "github",

@@ -1,5 +1,5 @@
 // Tailwind config -> https://v3.tailwindcss.com/docs/theme
-// V4 - coming soon
+
 
 import theme from "tailwindcss/defaultTheme";
 
@@ -14,11 +14,14 @@ export default {
 	darkMode: "class",
 	theme: {
 		colors: {
+			// optiontially add more colors from tailwindcss/colors
+			// https://tailwindcss.com/docs/customizing-colors#default-color-palette
+			// e.g. red: colors.red, blue: colors.blue, etc.
 			slate: colors.slate,
 			white: colors.white,
 			black: colors.black,
 			transparent: "transparent",
-			// makes the colors available in the theme object so we can use them in utility classes (e.g. focus:ring-theme-accent)
+			// makes the custom colors available in the theme object so we can use them in utility classes (e.g. focus:ring-theme-accent)
 			theme: {
 				primary: "var(--color-text)",
 				secondary: "var(--color-background)",
