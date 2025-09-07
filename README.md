@@ -109,7 +109,7 @@ MIT © [AMagicianNamedGob](https://github.com/AMagicianNamedGob)
 
 If you’d like to support my work, you can do so here:
 
-- [GitHub Sponsors](https://github.com/sponsors/AMagicianNamedGob)
+- ~~GitHub Sponsors~~ COMING SOON!
 - [Buy Me a Coffee](https://buymeacoffee.com/trujared)
 - [PayPal](https://www.paypal.biz/jaredMakes)
 
