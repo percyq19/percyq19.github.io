@@ -14,7 +14,7 @@ export default {
 	darkMode: "class",
 	theme: {
 		colors: {
-			// optiontially add more colors from tailwindcss/colors
+			// optionally add more colors from tailwindcss/colors
 			// https://tailwindcss.com/docs/customizing-colors#default-color-palette
 			// e.g. red: colors.red, blue: colors.blue, etc.
 			slate: colors.slate,
