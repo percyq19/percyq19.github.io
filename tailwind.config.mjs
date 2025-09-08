@@ -1,7 +1,7 @@
 // Tailwind config -> https://v3.tailwindcss.com/docs/theme
 
 
-import theme from "tailwindcss/defaultTheme";
+
 
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
@@ -18,64 +18,61 @@ export default {
 			// https://tailwindcss.com/docs/customizing-colors#default-color-palette
 			// e.g. red: colors.red, blue: colors.blue, etc.
 			slate: colors.slate,
+			stone: colors.stone,
+			zinc: colors.zinc,
 			white: colors.white,
 			black: colors.black,
 			transparent: "transparent",
 			// makes the custom colors available in the theme object so we can use them in utility classes (e.g. focus:ring-theme-accent)
 			theme: {
-				primary: "var(--color-text)",
-				secondary: "var(--color-background)",
-				accent: "var(--color-accent)",
-				"accent-alt": "var(--color-accent-alt)",
+				primary: "var(--color-accent)",
+				secondary: "var(--color-accent-alt)",
 			},
 		},
 		backgroundColor: {
 			slate: colors.slate,
+			stone: colors.stone,
+			zinc: colors.zinc,
 			white: colors.white,
 			black: colors.black,
-			transparent: "transparent",
+			transparent: 'transparent',
 			theme: {
-				primary: "var(--color-background)",
-				secondary: "var(--color-text)",
-				accent: "var(--color-accent)",
-				"accent-alt": "var(--color-accent-alt",
+				primary: "var(--color-background, #ffffff)",
+				secondary: "var(--color-text, #000000)",
+				accent: "var(--color-accent, #3498db)",
+				"accent-alt": "var(--color-accent-alt, #e67e22)",
 			},
 		},
 		backgroundImage: {
-			// bg-gradient-linear
 			"gradient-linear": generateGradient({
 				type: "linear",
 				angle: 145,
 				colors: ["var(--color-background)", "var(--color-gradient)"],
 			}),
-			// bg-gradient-radial
 			"gradient-radial": generateGradient({
 				type: "radial",
-				shape: "ellipse",
-				position: "bottom right",
+				position: "bottom",
 				colors: [
-					"var(--color-text)",
-					"var(--color-accent-alt)",
-					"var(--color-accent)",
+					"var(--color-gradient)",
 					"var(--color-accent)",
 					"var(--color-accent-alt)",
-					"var(--color-text)",
+					"var(--color-shadow)",
+
 				],
 			}),
 		},
 		borderColor: {
 			slate: colors.slate,
+			stone: colors.stone,
+			zinc: colors.zinc,
 			white: colors.white,
 			black: colors.black,
-			transparent: "transparent",
+			transparent: 'transparent',
 			theme: {
-				primary: "var(--color-text)",
-				secondary: "var(--color-background)",
-				accent: "var(--color-accent)",
-				"accent-alt": "var(--color-accent-alt)",
+				primary: "var(--color-accent)",
+				secondary: "var(--color-accent-alt)",
 			},
 		},
-
 		boxShadowColor: {
 			theme: {
 				primary: "var(--color-shadow)",
@@ -83,10 +80,12 @@ export default {
 			},
 		},
 		textColor: {
-			...colors.slate,
+			slate: colors.slate,
+			stone: colors.stone,
+			zinc: colors.zinc,
 			white: colors.white,
 			black: colors.black,
-			transparent: "transparent",
+			transparent: 'transparent',
 			theme: {
 				primary: "var(--color-text)",
 				secondary: "var(--color-background)",
@@ -96,11 +95,8 @@ export default {
 		},
 		textDecorationColor: {
 			theme: {
-				//
-				primary: "var(--color-text)",
-				secondary: "var(--color-background)",
-				accent: "var(--color-accent)",
-				"accent-alt": "var(--color-accent-alt)",
+				primary: "var(--color-accent)",
+				secondary: "var(--color-accent-alt)",
 			},
 		},
 		fontFamily: {
@@ -169,7 +165,6 @@ function generateGradient({
 	if (type === "radial")
 		return `radial-gradient(${shape} at ${position}, ${colors.join(", ")})`;
 
-	return `linear-gradient(${
-		angle ? angle + "deg" : "to " + direction
-	}, ${colors.join(", ")})`;
+	return `linear-gradient(${angle ? angle + "deg" : "to " + direction
+		}, ${colors.join(", ")})`;
 }

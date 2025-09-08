@@ -5,7 +5,6 @@ The 'prose' section is used to style markdown content.
 
  The 'helper classes' section is used to define utility classes that can be used in the application.
 */
-
 @import "./themes.css";
 @import "./animations.css";
 
@@ -114,7 +113,7 @@ The 'prose' section is used to style markdown content.
 	}
 
 	a {
-		@apply underline underline-offset-2 decoration-2 decoration-theme-accent hover:decoration-theme-accent-alt hover:text-theme-accent hover:bg-opacity-20 cursor-pointer focus:ring-2 focus:ring-theme-primary focus:ring-offset-2 focus:outline-none;
+		@apply underline underline-offset-2 decoration-2 decoration-theme-primary hover:decoration-theme-secondary hover:text-theme-accent hover:bg-opacity-20 cursor-pointer focus:ring-2 focus:ring-theme-primary focus:ring-offset-2 focus:outline-none;
 	}
 
 	a.active {

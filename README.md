@@ -8,6 +8,8 @@
 
 👉 **[Live Demo](https://alkaline-site.vercel.app/)**
 
+💻 **[New to Astro](https://docs.astro.build/en/getting-started/)**
+
 **Alkaline** is a sleek, Astro-powered theme designed for speed, clarity, and low-JavaScript sites.
 It ships with **14 built-in color themes**, **multiple layouts**, **24 pre-built components**, and **SEO optimizations**—all while keeping dependencies minimal.
 
@@ -68,7 +70,6 @@ Open `http://localhost:4321` in your browser.
 - `eslint.config.js`
 - `tailwind.config.js`
 - `tsconfig.json`
-
 
 ## 👻 Dependencies Docs
 
