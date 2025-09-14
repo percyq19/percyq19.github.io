@@ -6,12 +6,18 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?logo=typescript)
 ![Node](https://img.shields.io/badge/Node-18+-339933?logo=node.js)
 
-👉 **[Live Demo](https://alkaline-site.vercel.app/)**
+## Type Hints Weirdness
 
-💻 **[New to Astro](https://docs.astro.build/en/getting-started/)**
+🤷 For some inexpicable reason, type hints only work if you ctrl+space (or equivalent) on the closing tag of a component.
+
+## Demo & Astro Info
 
 **Alkaline** is a sleek, Astro-powered theme designed for speed, clarity, and low-JavaScript sites.
 It ships with **14 built-in color themes**, **multiple layouts**, **24 pre-built components**, and **SEO optimizations**—all while keeping dependencies minimal.
+
+👉 **[Live Demo](https://alkaline-site.vercel.app/)**
+
+💻 **[New to Astro](https://docs.astro.build/en/getting-started/)**
 
 ## 🚀 Features
 
