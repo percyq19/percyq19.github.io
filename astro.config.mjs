@@ -13,9 +13,9 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-	site: SITE.url,
+	site: 'https://percyq19.githut.io',
 	markdown: {
-		shikiConfig: SITE.shikiConfig,
+		shikiConfig: percyq19.shikiConfig,
 	},
 	integrations: [mdx(), tailwind(), sitemap(), robotsTxt(robotsConfig), icon()],
 	vite: {
