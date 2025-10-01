@@ -1,6 +1,6 @@
 # Indexing.
-# Build Date: 2025-10-01T18:11:13.667Z.
+# Build Date: 2025-10-01T21:21:19.513Z.
 
 User-agent: *
 Disallow:
-Sitemap: https://percyq19.githut.io/sitemap-index.xml
+Sitemap: https://percyq19.github.io/sitemap-index.xml
