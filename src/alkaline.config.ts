@@ -44,40 +44,31 @@ export const allSocials: Socials[] = Platforms.map((platform) => ({
 
 
 export const AUTHORS: Author[] = [
-	// assumes that the 1st author has the same socials as the site - change if needed
 	{
 		id: 1,
-		name: "Jared Truscott",
+		name: "Percy Quispe",
 		socials: socials,
-		email: 'jared@jaredmakes.com'
-	},
-	// example of a 2nd author with all socials - replace with your own author(s) or remove if not needed
-	{
-		id: 2,
-		name: "Jeff Goldblum",
-		socials: allSocials,
-		email: null
+		email: 'percyquispe@email.com'
 	},
 ]
 
 export const SITE: Site = {
-	title: "Alkaline",
+	title: "Percy Quispe",
 	showTitleBackground: true,
 	faviconSrc: "/favicon.png", // in public directory
-	url: "https://alkaline-theme.xyz",
+	url: "https://percyq19.github.io",
 	ogImage: "/og-image.webp", // in public directory
-	author: AUTHORS[0].name, // Made with ❤️ by {your-name}
-	description: "A Neutral Base For Your Next Creation",
-	keywords: ["astro", "theme", "blog"],
+	author: AUTHORS[0].name, // Made with ❤️ by Percy Quispe
+	description: "Blog personal de Percy Quispe",
+	keywords: ["astro", "blog", "percy quispe"],
 	disableIndexing: false, // true for no indexing
 	socials: socials,
-	locale: "en_US",
+	locale: "es_ES",
 	postsPerPage: 5,
 	shikiConfig: {
 		// ctrl+space for theme suggestions
 		theme: "night-owl",
 	},
-	// I provide  Types for many of the top Google Fonts, edit or remove ./Types/google-fonts.d.ts to add/remove font types
 	fonts: [
 		{
 			typeface: "serif",
@@ -96,7 +87,6 @@ export const SITE: Site = {
 			fontWeights: [400, 500, 700],
 		},
 	],
-	// Trouble with the fonts? It's likely because a font family name isn't EXACTLY correct or the font weights you're trying to fetch are not supported for that font family. For example, setting Fira Code with fontWeights: ["400...700"] will not work because Fira Code only supports 400, 500, and 700.
 };
 
 // TODO: "slug" is the more appropriate term  here but would require more changes throughout the theme

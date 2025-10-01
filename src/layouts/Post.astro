@@ -42,36 +42,31 @@ const { Content } = await render(entry);
   description={entry.data.description}
   class="capitalize"
 >
-  <section class="mt-0 mb-2">
-    <article class:list={["prose", className]}>
-      {entry.data.subtitle && <p class="h2">{entry.data.subtitle}</p>}
-
-      {
-        entry.data.cover && (
-          <Image
-            src={entry.data.cover.src}
-            alt={entry.data.cover.alt || entry.data.title}
-            class:list={[
-              "w-full h-auto max-h-[25rem] object-cover my-4",
-              options,
-            ]}
-            width={600}
-          />
-        )
-      }
-
-      <Author
-        authorId={entry.data.authorId}
-        pubDateTime={entry.data.pubDatetime}
-      />
-      {
-        entry.data.tags && (
-          <span class="flex items-baseline -mt-4 mb-14">
-            <Tags tags={entry.data.tags} class="mt-2" />
+  <section class="mt-0 mb-8">
+    <div class="rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 p-6 text-white shadow-lg mb-8">
+      <h1 class="text-4xl font-extrabold mb-2 drop-shadow-lg">{entry.data.title}</h1>
+      {entry.data.subtitle && <p class="text-xl font-medium mb-4 opacity-90">{entry.data.subtitle}</p>}
+      <div class="flex items-center gap-4 mb-4">
+        <Author authorId={entry.data.authorId} pubDateTime={entry.data.pubDatetime} />
+        {entry.data.tags && (
+          <span class="flex items-baseline">
+            <Tags tags={entry.data.tags} class="ml-2" />
           </span>
-        )
-      }
-
+        )}
+      </div>
+      {entry.data.cover && (
+        <Image
+          src={entry.data.cover.src}
+          alt={entry.data.cover.alt || entry.data.title}
+          class:list=[
+            "w-full h-auto max-h-[20rem] object-cover rounded-lg border-4 border-white shadow-md",
+            options,
+          ]
+          width={600}
+        />
+      )}
+    </div>
+    <article class:list={["prose", className]}>
       <Content />
     </article>
   </section>
