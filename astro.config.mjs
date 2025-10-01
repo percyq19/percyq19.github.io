@@ -13,7 +13,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://percyq19.githut.io',
+	site: 'https://percyq19.github.io',
 // markdown: {
 // 	shikiConfig: percyq19.shikiConfig,
 // },
