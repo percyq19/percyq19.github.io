@@ -43,8 +43,7 @@ export const allSocials: Socials[] = Platforms.map((platform) => ({
 }));
 
 
-export const AUTHORS: Author[] = [
-	{
+export const AUTHORS: Author[]	{
 		id: 1,
 		name: "Percy Quispe",
 		socials: socials,
