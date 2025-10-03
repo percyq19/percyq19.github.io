@@ -14,20 +14,20 @@ import type { Site, Author, Socials, NavEntry, Blog } from "./Types/types";
 // See: ./Types/types.ts for more info on author socials
 export const socials: Socials[] = [
 	{
-		platform: "email",
-		url: "alkaline@jaredtruscott.com",
+		platform: "facebook",
+		url: "https://facebook.com/tuusuario",
+	},
+	{
+		platform: "twitter",
+		url: "https://twitter.com/tuusuario",
 	},
 	{
 		platform: "github",
-		url: "https://github.com/TruJared/",
+		url: "https://github.com/tuusuario",
 	},
 	{
-		platform: "web",
-		url: "https://jaredmakes.com",
-	},
-	{
-		platform: "bluesky",
-		url: "https://bsky.app/profile/trujared.bsky.social",
+		platform: "linkedin",
+		url: "https://linkedin.com/in/tuusuario",
 	},
 	{
 		platform: "rss",
@@ -94,15 +94,15 @@ export const SITE: Site = {
 export const NAVIGATION: NavEntry[] = [
 	{
 		href: "/",
-		text: "Home",
+		text: "Inicio",
 	},
 	{
 		href: "/elements",
-		text: "Elements",
+		text: "Economia",
 	},
 	{
 		href: "/features",
-		text: "Features",
+		text: "Investigacion",
 	},
 	{
 		href: "/blog",
@@ -110,11 +110,11 @@ export const NAVIGATION: NavEntry[] = [
 	},
 	{
 		href: "/tags",
-		text: "Tags",
+		text: "Tecnología",
 	},
 	{
 		href: "/faq",
-		text: "FAQ",
+		text: "Inteligencia Artificial",
 	},
 	{
 		href: "/404",

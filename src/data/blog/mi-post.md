@@ -4,7 +4,7 @@ subtitle: "¡La corrupcion de a pequeño se puede combertir en grande!"
 description: "Trata sobre la corrupcion en la PNP que tiene su origen en el ingreso de las escuela de suboficiales y oficiales, asi, tambien, en las coimas que los policias piden en las calles"
 pubDatetime: 2025-10-02
 authorId: 1
-tags: ["astro", "ejemplo", "blog"]
+tags: []
 cover: { src: "/alk4.png", alt: "Imagen de portada" }
 ---
 
