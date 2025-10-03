@@ -21,23 +21,27 @@ const options = {
 
 
 
+
 import { getCollection } from "astro:content";
-import { Markdown } from "astro/components";
 
 const posts = await getCollection("blog");
-let post = null;
-if (posts && posts.length > 0) {
-  posts.sort((a, b) => new Date(b.data.pubDatetime) < new Date(a.data.pubDatetime) ? 1 : -1);
-  post = posts[0];
-}
+const sortedPosts = posts
+  ? posts.slice().sort((a, b) => new Date(b.data.pubDatetime) < new Date(a.data.pubDatetime) ? 1 : -1)
+  : [];
+const post = sortedPosts[0];
 
 <Layout>
+
   {post ? (
     <article class="prose mx-auto my-10">
       <h1>{post.data.title}</h1>
       {post.data.subtitle && <h2>{post.data.subtitle}</h2>}
       <p>{post.data.description}</p>
-      <Markdown content={post.body} />
+      {post.body ? (
+        <div set:html={post.body} />
+      ) : (
+        <p>No hay contenido para mostrar.</p>
+      )}
     </article>
   ) : (
     <p class="text-center mt-10">No hay publicaciones aún.</p>
