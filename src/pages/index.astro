@@ -20,12 +20,16 @@ const options = {
 
 
 
+
 import { getCollection } from "astro:content";
 import { Markdown } from "astro/components";
 
 const posts = await getCollection("blog");
-const sortedPosts = posts.sort((a, b) => new Date(b.data.pubDatetime) - new Date(a.data.pubDatetime));
-const post = sortedPosts[0];
+let post = null;
+if (posts && posts.length > 0) {
+  posts.sort((a, b) => new Date(b.data.pubDatetime) < new Date(a.data.pubDatetime) ? 1 : -1);
+  post = posts[0];
+}
 
 <Layout>
   {post ? (
