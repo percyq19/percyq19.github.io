@@ -18,15 +18,22 @@ const options = {
 };
 ---
 
-import { getCollection } from "astro:content";
-import Post from "@layouts/Post.astro";
 
-const posts = await getCollection("blog");
-const latestPost = posts && posts.length > 0 ? posts[0] : null;
+import { getEntryBySlug } from "astro:content";
+
+// Cambia el slug por el nombre de tu post más reciente (sin .md)
+const post = await getEntryBySlug("blog", "mi-primer-post");
 
 <Layout>
-  {latestPost ? (
-    <Post {...latestPost} />
+  {post ? (
+    <article class="prose mx-auto my-10">
+      <h1>{post.data.title}</h1>
+      {post.data.subtitle && <h2>{post.data.subtitle}</h2>}
+      <p>{post.data.description}</p>
+      <div>
+        <post.render />
+      </div>
+    </article>
   ) : (
     <p class="text-center mt-10">No hay publicaciones aún.</p>
   )}
