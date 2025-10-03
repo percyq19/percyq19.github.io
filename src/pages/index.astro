@@ -19,10 +19,13 @@ const options = {
 ---
 
 
-import { getEntryBySlug } from "astro:content";
 
-// Cambia el slug por el nombre de tu post más reciente (sin .md)
-const post = await getEntryBySlug("blog", "mi-primer-post");
+import { getCollection } from "astro:content";
+import { Markdown } from "astro/components";
+
+const posts = await getCollection("blog");
+const sortedPosts = posts.sort((a, b) => new Date(b.data.pubDatetime) - new Date(a.data.pubDatetime));
+const post = sortedPosts[0];
 
 <Layout>
   {post ? (
@@ -30,9 +33,7 @@ const post = await getEntryBySlug("blog", "mi-primer-post");
       <h1>{post.data.title}</h1>
       {post.data.subtitle && <h2>{post.data.subtitle}</h2>}
       <p>{post.data.description}</p>
-      <div>
-        <post.render />
-      </div>
+      <Markdown content={post.body} />
     </article>
   ) : (
     <p class="text-center mt-10">No hay publicaciones aún.</p>
