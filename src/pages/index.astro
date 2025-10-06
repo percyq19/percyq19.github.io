@@ -4,7 +4,7 @@ import PageHeader from "@components/Astro/PageHeader.astro";
 import Card from "@components/Astro/Card.astro";
 import coverImage from "@assets/alk-cover-2.webp";
 import Link from "@components/Astro/Link.astro";
-
+import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
 
 import { Image } from "astro:assets";
@@ -16,23 +16,15 @@ const description =
 const options = {
   "rounded-theme": true,
 };
----
-
-
-
-
-
-
-import { getCollection } from "astro:content";
 
 const posts = await getCollection("blog");
 const sortedPosts = posts
-  ? posts.slice().sort((a, b) => new Date(b.data.pubDatetime) - new Date(a.data.pubDatetime))
+  ? posts.slice().sort((a, b) => new Date(b.data.pubDatetime).valueOf() - new Date(a.data.pubDatetime).valueOf())
   : [];
 const post = sortedPosts[0];
+---
 
 <Layout>
-
   {post && (
     <article class="prose mx-auto my-10">
       <h1>{post.data.title}</h1>
