@@ -22,11 +22,12 @@ const options = {
 
 
 
+
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("blog");
 const sortedPosts = posts
-  ? posts.slice().sort((a, b) => new Date(b.data.pubDatetime) < new Date(a.data.pubDatetime) ? 1 : -1)
+  ? posts.slice().sort((a, b) => new Date(b.data.pubDatetime) - new Date(a.data.pubDatetime))
   : [];
 const post = sortedPosts[0];
 
