@@ -33,7 +33,7 @@ const post = sortedPosts[0];
 
 <Layout>
 
-  {post ? (
+  {post && (
     <article class="prose mx-auto my-10">
       <h1>{post.data.title}</h1>
       {post.data.subtitle && <h2>{post.data.subtitle}</h2>}
@@ -44,7 +44,6 @@ const post = sortedPosts[0];
         <p>No hay contenido para mostrar.</p>
       )}
     </article>
-  ) : (
-    <p class="text-center mt-10">No hay publicaciones aún.</p>
   )}
+  {!post && <p class="text-center mt-10">No hay publicaciones aún.</p>}
 </Layout>
