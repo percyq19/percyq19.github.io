@@ -1,41 +1,91 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import PageHeader from "@components/Astro/PageHeader.astro";
-import Card from "@components/Astro/Card.astro";
-import coverImage from "@assets/alk-cover-2.webp";
-import Link from "@components/Astro/Link.astro";
 import { getCollection } from "astro:content";
-import { Icon } from "astro-icon/components";
-
 import { Image } from "astro:assets";
-import Bing from "@assets/bing.jpg";
-
-const description =
-  "Build modern websites in minutes with Alkaline - a low-dependency, framework-less, type-safe Astro starter kit. Featuring 14 unique color themes and more than 2 dozen pre-built Astro components, Alkaline is a great starting point for blogs, portfolios, e-commerce sites, and more.";
-
-const options = {
-  "rounded-theme": true,
-};
+import Tag from "@components/Astro/utils/Tag.astro";
+import Author from "@components/Astro/Author.astro";
+import { Icon } from "astro-icon/components";
 
 const posts = await getCollection("blog");
 const sortedPosts = posts
-  ? posts.slice().sort((a, b) => new Date(b.data.pubDatetime).valueOf() - new Date(a.data.pubDatetime).valueOf())
+  ? posts
+      .slice()
+      .sort(
+        (a, b) =>
+          new Date(b.data.pubDatetime).valueOf() -
+          new Date(a.data.pubDatetime).valueOf()
+      )
   : [];
-const post = sortedPosts[0];
+const latestPosts = sortedPosts.slice(0, 4);
+
+const options = { "rounded-theme": true };
 ---
 
 <Layout>
-  {post && (
-    <article class="prose mx-auto my-10">
-      <h1>{post.data.title}</h1>
-      {post.data.subtitle && <h2>{post.data.subtitle}</h2>}
-      <p>{post.data.description}</p>
-      {post.body ? (
-        <div set:html={post.body} />
+  <section class="my-10">
+    <h1 class="text-3xl font-bold text-center mb-12">Últimas Publicaciones</h1>
+    {
+      latestPosts.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {latestPosts.map((post) => (
+            <article
+              class="bg-theme-secondary p-6 rounded-lg shadow-lg"
+              id={post.id}
+            >
+              <a
+                href={`/blog/${post.slug}`}
+                class="no-underline mb-4 group block"
+              >
+                {post.data.cover && (
+                  <div class="w-full h-48 mb-4 overflow-hidden rounded-md">
+                    <Image
+                      src={post.data.cover.src}
+                      alt={post.data.cover.alt || post.data.title || "Post Image"}
+                      format="webp"
+                      width={400}
+                      height={200}
+                      class:list={[
+                        "object-cover w-full h-full border border-theme-accent group-hover:scale-110 transition-transform duration-500",
+                        options,
+                      ]}
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                <h2 class="text-xl font-bold text-theme-primary group-hover:underline">
+                  {post.data.title}
+                </h2>
+              </a>
+              <div class="flex flex-wrap mt-2 mb-3">
+                {post.data.tags?.map((tag: string) => <Tag tag={tag} size="sm" />)}
+              </div>
+              <p class="text-base mb-4 text-theme-primary/80">
+                {post.data.description}
+                <a
+                  href={`/blog/${post.slug}`}
+                  class="text-theme-accent pl-2 hover:underline"
+                >
+                  Leer más...
+                </a>
+              </p>
+              <div class="border-l-4 border-theme-accent p-3 text-sm">
+                <Icon
+                  name="ri:quill-pen-line"
+                  size="16"
+                  class="align-middle inline mr-1"
+                />
+                <Author
+                  authorId={post.data.authorId || ""}
+                  pubDateTime={new Date(post.data.pubDatetime)}
+                  class="ml-0.5 inline font-mono not-italic"
+                />
+              </div>
+            </article>
+          ))}
+        </div>
       ) : (
-        <p>No hay contenido para mostrar.</p>
-      )}
-    </article>
-  )}
-  {!post && <p class="text-center mt-10">No hay publicaciones aún.</p>}
+        <p class="text-center mt-10">No hay publicaciones aún.</p>
+      )
+    }
+  </section>
 </Layout>
