@@ -114,7 +114,7 @@ export const NAVIGATION: NavEntry[] = [
 	},
 	{
 		href: "/faq",
-		text: "Inteligencia Artificial",
+		text: "Inteligencia Artificial,-",
 	},
 	{
 		href: "/404",
