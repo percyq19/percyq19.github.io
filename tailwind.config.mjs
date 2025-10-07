@@ -38,7 +38,7 @@ export default {
 			transparent: 'transparent',
 			theme: {
 				primary: "var(--color-background, #ffffff)",
-				secondary: "var(--color-text, #000000)",
+				secondary: "var(--color-gradient)",
 				accent: "var(--color-accent, #3498db)",
 				"accent-alt": "var(--color-accent-alt, #e67e22)",
 			},
