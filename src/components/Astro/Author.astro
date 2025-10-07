@@ -23,7 +23,7 @@
 
 import type { Author } from "../../Types/types";
 
-import { AUTHORS } from "src/alkaline.config";
+import { AUTHORS, SITE } from "src/alkaline.config";
 import SocialsCloud from "@components/Astro/SocialsCloud.astro";
 
 interface Props {
@@ -45,7 +45,7 @@ const displayDate = pubDateTime
   <span>
     {AUTHORS.find((author) => author.id === authorId)?.name}
     <div class="text-sm font-normal -mt-0.5 -mb-3">
-      {displayDate ? `- ${displayDate.toDateString()}  ` : ""}
+      {displayDate ? `- ${displayDate.toLocaleDateString(SITE.locale, { year: 'numeric', month: 'long', day: 'numeric' })}  ` : ""}
     </div>
   </span>
   <div class="m-0">

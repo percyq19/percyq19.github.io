@@ -15,19 +15,19 @@ import type { Site, Author, Socials, NavEntry, Blog } from "./Types/types";
 export const socials: Socials[] = [
 	{
 		platform: "facebook",
-		url: "https://facebook.com/tuusuario",
+		url: "https://facebook.com/Percy Lcq",
 	},
 	{
 		platform: "twitter",
-		url: "https://twitter.com/tuusuario",
+		url: "https://twitter.com/percyq19",
 	},
 	{
 		platform: "github",
-		url: "https://github.com/tuusuario",
+		url: "https://github.com/percyq19",
 	},
 	{
 		platform: "linkedin",
-		url: "https://linkedin.com/in/tuusuario",
+		url: "https://linkedin.com/in/Percy Quispe",
 	},
 	{
 		platform: "rss",

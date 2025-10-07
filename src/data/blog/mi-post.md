@@ -20,5 +20,6 @@ cover: { src: "/alk4.png", alt: "Imagen de portada" }
 ```js
 console.log('Hola mundo');
 ```
+[Aqui puede visitar mi investigacion a detalle](https://percyq19.github.io/trabajo3.html)
 
 <iframe src="/trabajo3.html" width="100%" height="600" style="border:none;"></iframe>
