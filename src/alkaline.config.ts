@@ -63,7 +63,7 @@ export const SITE: Site = {
 	keywords: ["astro", "blog", "percy quispe"],
 	disableIndexing: false, // true for no indexing
 	socials: socials,
-	locale: "es_ES",
+	locale: "es-ES",
 	postsPerPage: 5,
 	shikiConfig: {
 		// ctrl+space for theme suggestions

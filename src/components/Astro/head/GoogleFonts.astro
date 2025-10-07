@@ -85,13 +85,20 @@ function buildGoogleFontsUrl(fonts: Font[]) {
 
 <!-- <link rel="preconnect" href="https://fonts.googleapis.com" /> -->
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-// @ts-ignore
 <link
   rel="preload"
   href={buildGoogleFontsUrl(fonts)}
-  onload="this.onload=null;this.rel='stylesheet';this.removeAttribute('as')"
   as="style"
+  id="google-fonts-preload"
 />
+<script is:inline>
+  const link = document.getElementById('google-fonts-preload');
+  link.onload = () => {
+    link.onload = null;
+    link.rel = 'stylesheet';
+    link.removeAttribute('as');
+  };
+</script>
 <noscript>
   <link rel="stylesheet" href={buildGoogleFontsUrl(fonts)} />
 </noscript>
