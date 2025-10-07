@@ -33,7 +33,7 @@ const options = { "rounded-theme": true };
               id={post.id}
             >
               <a
-                href={`/blog/${post.slug}`}
+                href={`/blog/${post.id}`}
                 class="no-underline mb-4 group block"
               >
                 {post.data.cover && (
@@ -62,7 +62,7 @@ const options = { "rounded-theme": true };
               <p class="text-base mb-4 text-theme-primary/80">
                 {post.data.description}
                 <a
-                  href={`/blog/${post.slug}`}
+                  href={`/blog/${post.id}`}
                   class="text-theme-accent pl-2 hover:underline"
                 >
                   Leer más...
