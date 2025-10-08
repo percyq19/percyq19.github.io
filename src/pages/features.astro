@@ -1,10 +1,26 @@
 ---
+// Imports para la estructura del post
+import Layout from "@layouts/Layout.astro";
+import Author from "@components/Astro/Author.astro";
+import Tags from "@components/Astro/Tags.astro";
+
+// Imports originales de la página
 import { Icon } from "astro-icon/components";
 import Heading from "@components/Astro/Heading.astro";
-import Layout from "@layouts/Layout.astro";
 import Link from "@components/Astro/Link.astro";
 import FeaturesList from "@components/Astro/FeaturesList.astro";
 
+// --- Datos del "Post" ---
+// Puedes cambiar estos valores para que se ajusten a lo que quieres mostrar
+const post = {
+  title: "Características Principales",
+  subtitle: "Un vistazo a todo lo que Alkaline puede ofrecer.",
+  authorId: "default", // Asume que tienes un autor por defecto o cámbialo
+  pubDatetime: new Date(), // Fecha de publicación
+  tags: ["información", "astro", "alkaline"],
+};
+
+// --- Contenido de la lista de features (el contenido original) ---
 const features = [
   {
     title: "Simple Configuration Files.",
@@ -73,15 +89,33 @@ const features = [
 ];
 ---
 
-<Layout title="Features">
-  <Heading text="Feature List" />
-  <p class="flex items-center justify-center gap-2">
-    <Icon name="ri:questionnaire-line" size="1.5em" class="opacity-80" />
-    Looking for the <Link href="/faq" text="FAQ?" />
-  </p>
-  <section class="max-w-6xl mx-auto p-6 w-full mt-0">
-    <article class="md:mx-12 lg:mx-auto w-full max-w-2xl">
-      <FeaturesList features={features} />
+<Layout title={post.title} description={post.subtitle}>
+  <!-- Sección de cabecera que imita a un post -->
+  <section class="mt-0 mb-8">
+    <div class="rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 p-6 text-white shadow-lg mb-8">
+      <h1 class="text-4xl font-extrabold mb-2 drop-shadow-lg">{post.title}</h1>
+      {post.subtitle && <p class="text-xl font-medium mb-4 opacity-90">{post.subtitle}</p>}
+      <div class="flex items-center gap-4 mb-4">
+        <Author authorId={post.authorId} pubDateTime={post.pubDatetime} />
+        {post.tags && (
+          <span class="flex items-baseline">
+            <Tags tags={post.tags} class="ml-2" />
+          </span>
+        )}
+      </div>
+    </div>
+    
+    <!-- Contenido principal del "post" (la lista de features) -->
+    <article class="prose">
+      <p class="flex items-center justify-center gap-2">
+        <Icon name="ri:questionnaire-line" size="1.5em" class="opacity-80" />
+        Looking for the <Link href="/faq" text="FAQ?" />
+      </p>
+      <section class="max-w-6xl mx-auto p-6 w-full mt-0">
+        <article class="md:mx-12 lg:mx-auto w-full max-w-2xl">
+          <FeaturesList features={features} />
+        </article>
+      </section>
     </article>
   </section>
 </Layout>

@@ -1,0 +1,44 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Heading from "@components/Astro/Heading.astro";
+import Link from "@components/Astro/Link.astro";
+---
+
+<Layout title="Libros" description="Una selección de libros recomendados.">
+  <Heading text="Libros Recomendados" />
+
+  <p class="text-center mx-auto text-2xl px-2 max-w-5xl leading-loose">
+    Una lista curada de libros sobre economía, tecnología y otros temas de interés.
+  </p>
+
+  <section class="prose max-w-4xl mx-auto">
+    <article class="mt-12">
+      <h3>Título del Libro 1</h3>
+      <p>
+        Breve descripción del libro y por qué lo recomiendas. 
+        <Link href="#" external text="Enlace de compra o más información" />
+      </p>
+    </article>
+
+    <article class="mt-12">
+      <h3>Título del Libro 2</h3>
+      <p>
+        Breve descripción del libro y por qué lo recomiendas. 
+        <Link href="#" external text="Enlace de compra o más información" />
+      </p>
+    </article>
+
+    <article class="mt-12">
+      <h3>Título del Libro 3</h3>
+      <p>
+        Breve descripción del libro y por qué lo recomiendas. 
+        <Link href="#" external text="Enlace de compra o más información" />
+      </p>
+    </article>
+
+    <p class="text-center mt-16">
+        <em>Para añadir más libros, edita directamente el archivo <code>src/pages/libros.astro</code>.</em>
+    </p>
+  </section>
+
+</Layout>

@@ -97,11 +97,11 @@ export const NAVIGATION: NavEntry[] = [
 		text: "Inicio",
 	},
 	{
-		href: "/elements",
+		href: "/economia",
 		text: "Economia",
 	},
 	{
-		href: "/features",
+		href: "/investigacion",
 		text: "Investigacion",
 	},
 	{
@@ -114,11 +114,11 @@ export const NAVIGATION: NavEntry[] = [
 	},
 	{
 		href: "/faq",
-		text: "Inteligencia Artificial,-",
+		text: "Inteligencia Artificial",
 	},
 	{
-		href: "/404",
-		text: "404",
+		href: "/libros",
+		text: "Libros",
 	},
 ];
 
@@ -131,4 +131,4 @@ export const BLOG: Blog = {
 };
 
 // export the name(s) of the collections as a list - must match the name of the collection in the ./Types/types.ts file
-export const COLLECTION_NAMES_LIST = ["blog"] as const;
+export const COLLECTION_NAMES_LIST = ["blog", "investigacion", "economia"] as const;
