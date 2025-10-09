@@ -65,6 +65,15 @@ const pathname = new URL(Astro.request.url).pathname;
 </nav>
 
 <style>
+	nav a {
+		text-decoration: none;
+		transition: color 0.2s ease-in-out;
+	}
+
+	nav a:hover {
+		color: var(--theme-accent);
+	}
+
 	nav a.active {
 		font-weight: 700;
 	}

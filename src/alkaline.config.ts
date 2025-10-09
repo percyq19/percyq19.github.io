@@ -106,7 +106,7 @@ export const NAVIGATION: NavEntry[] = [
 	},
 	{
 		href: "/blog",
-		text: "Artículos",
+		text: "blog",
 	},
 	{
 		href: "/tags",
@@ -118,7 +118,7 @@ export const NAVIGATION: NavEntry[] = [
 	},
 	{
 		href: "/libros",
-		text: "Mis Libros",
+		text: "Libros",
 	},
 ];
 
