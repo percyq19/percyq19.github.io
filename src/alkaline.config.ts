@@ -98,27 +98,27 @@ export const NAVIGATION: NavEntry[] = [
 	},
 	{
 		href: "/economia",
-		text: "Economia",
+		text: "Economía",
 	},
 	{
 		href: "/investigacion",
-		text: "Investigacion",
+		text: "Investigación",
 	},
 	{
 		href: "/blog",
-		text: "Blog",
+		text: "Artículos",
 	},
 	{
 		href: "/tags",
-		text: "Tecnología",
+		text: "Etiquetas",
 	},
 	{
 		href: "/faq",
-		text: "Inteligencia Artificial",
+		text: "FAQ",
 	},
 	{
 		href: "/libros",
-		text: "Libros",
+		text: "Mis Libros",
 	},
 ];
 
