@@ -54,7 +54,7 @@ const pathname = new URL(Astro.request.url).pathname;
 				<li class=" mb-2 py-0 pr-4 first:pl-1 sm:mb-0 md:pr-5">
 					<Link
 						href={obj.href}
-						class:list={["text-lg", "no-underline", { active: obj.href === pathname }]}
+						class:list={["text-lg", "no-underline", "uppercase", { active: obj.href === pathname }]}
 						text={obj.text}
 					/>
 				</li>
