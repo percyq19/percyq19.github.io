@@ -44,13 +44,7 @@ posts?.sort(
 
 <Layout title={title} description={description} class={className}>
   {subtitle && <Heading text={subtitle} showHeadingBackground />}
-  {
-    subtitle?.toLowerCase() !== "blog examples" && (
-      <span class="text-center block">
-        <a href="/blog"> Back to all blog entires</a>
-      </span>
-    )
-  }
+
   <section class="md:max-w-3xl md:mx-auto mt-0">
     {!posts?.length && <p class="text-theme-primary">No posts found.</p>}
     {
