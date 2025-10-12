@@ -39,17 +39,16 @@ const { text, showHeadingBackground = true, class: className } = Astro.props;
 		className,
 	]}
 >
-	<p
-		class:list={[
-			" tracking-widest text-4xl font-medium capitalize leading-relaxed mx-auto",
-			{
-				"bg-theme-secondary text-theme-secondary leading-none p-4 inline-block":
-					showHeadingBackground,
-				"w-full": !showHeadingBackground,
-			},
-			{ "rounded-theme": true },
-		]}
-	>
-		{text}
-	</p>
-</div>
+	    <p
+	        class:list={[
+	            " tracking-widest text-4xl font-medium leading-relaxed mx-auto",
+	            {
+	                "bg-theme-secondary text-theme-secondary leading-none p-4 inline-block":
+	                    showHeadingBackground,
+	                "w-full": !showHeadingBackground,
+	            },
+	            { "rounded-theme": true },
+	        ]}
+	    >
+	        {text}
+	    </p></div>
