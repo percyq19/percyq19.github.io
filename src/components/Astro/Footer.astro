@@ -69,7 +69,7 @@ const { title = SITE.title, author, portfolio, class: className }: Props = Astro
 					{portfolio ? <Link href={portfolio} text={author} external hideIcon/> : author}
 				</p>
 				<p class="text-center text-sm">
-				 <SocialsCloud socials={SITE.socials} class="opacity-80"/>
+				 <SocialsCloud socials={SITE.socials} class="opacity-80 justify-center"/>
 				</p>
 			)
 		}
