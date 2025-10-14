@@ -1,28 +1,7 @@
 ---
 /* Component for rendering the main navigation with theme toggle.
- *
- * Props:
- * - links: NavEntry[] - Array of navigation links
- * - themeNames?: string[] - Optional theme names for toggle
- * - class?: string - Additional CSS classes
- *
- * Example usage:
- * <Nav
- *   links={[
- *     { href: "/", text: "Home" },
- *     { href: "/blog", text: "Blog" },
- *     { href: "/about", text: "About" }
- *   ]}
- *   class="my-custom-nav"
- * />
- *
- * Notes:
- * - Includes theme toggle button
- * - Responsive design with flex layout
- * - Accessible with proper ARIA labels
- * - Supports custom styling
- * - Automatically handles mobile layout
- */
+...
+*/
 
 import type { NavEntry } from "../../Types/types";
 
@@ -58,20 +37,20 @@ const pathname = new URL(Astro.request.url).pathname;
     </div>
 
     <div id="nav-menu" class="w-full sm:flex sm:items-center sm:w-auto hidden sm:!flex">
-        <ul class="flex flex-col sm:flex-row sm:flex-wrap items-center mt-0 sm:mt-0 sm:mr-auto">
+        <ul class="flex flex-col sm:flex-row sm:flex-wrap items-center sm:mr-auto">
             {
                 links.map((obj) => (
-                    <li class="sm:my-0 sm:mb-0 sm:mr-4">
+                    <li class="sm:mr-4">
                         <Link
                             href={obj.href}
-                            class:list={["text-lg", "no-underline", "uppercase", "py-1", { active: obj.href === pathname }]}
+                            class:list={["text-lg", "no-underline", "uppercase", { active: obj.href === pathname }]}
                             text={obj.text}
                         />
                     </li>
                 ))
             }
         </ul>
-        <div class="mt-0 sm:mt-0">
+        <div>
             <ToggleTheme />
         </div>
     </div>
@@ -121,4 +100,25 @@ const pathname = new URL(Astro.request.url).pathname;
 			padding-right: 0;
 		}
 	}
+</style>
+
+<style is:global>
+    #main-navigation div {
+        margin: 0;
+        padding: 0;
+    }
+    #main-navigation ul {
+        margin: 0;
+        padding: 0;
+    }
+    #main-navigation li {
+        margin: 0;
+        padding: 0;
+        line-height: normal;
+    }
+    #main-navigation a {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        display: inline-block; /* Ensures padding is applied correctly */
+    }
 </style>
