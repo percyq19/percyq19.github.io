@@ -58,20 +58,20 @@ const pathname = new URL(Astro.request.url).pathname;
     </div>
 
     <div id="nav-menu" class="w-full flex-grow sm:flex sm:items-center sm:w-auto hidden sm:!flex">
-        <ul class="flex flex-col sm:flex-row sm:flex-wrap items-center mt-4 sm:mt-0 sm:mr-auto">
+        <ul class="flex flex-col sm:flex-row sm:flex-wrap items-center mt-2 sm:mt-0 sm:mr-auto">
             {
                 links.map((obj) => (
-                    <li class="my-1 sm:my-0 sm:mb-0 sm:mr-4">
+                    <li class="sm:my-0 sm:mb-0 sm:mr-4">
                         <Link
                             href={obj.href}
-                            class:list={["text-lg", "no-underline", "uppercase", { active: obj.href === pathname }]}
+                            class:list={["text-lg", "no-underline", "uppercase", "py-2", { active: obj.href === pathname }]}
                             text={obj.text}
                         />
                     </li>
                 ))
             }
         </ul>
-        <div class="mt-4 sm:mt-0">
+        <div class="mt-2 sm:mt-0">
             <ToggleTheme />
         </div>
     </div>
@@ -83,9 +83,9 @@ const pathname = new URL(Astro.request.url).pathname;
 
     if (hamburgerButton && navMenu) {
         hamburgerButton.addEventListener('click', () => {
-            const isExpanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
-            hamburgerButton.setAttribute('aria-expanded', String(!isExpanded));
             navMenu.classList.toggle('hidden');
+            const isHidden = navMenu.classList.contains('hidden');
+            hamburgerButton.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
         });
     }
 </script>
