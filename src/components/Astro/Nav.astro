@@ -46,23 +46,49 @@ const pathname = new URL(Astro.request.url).pathname;
 <nav
 	id="main-navigation"
 	aria-label="Main navigation"
-	class:list={["flex flex-col sm:flex-row items-center z-10 px-4 py-2", className]}
+	class:list={["flex items-center justify-between flex-wrap z-10 px-4 py-2", className]}
 >
-	<ul class="flex flex-col sm:flex-row flex-wrap items-center mb-2 sm:mb-0 sm:mr-auto">
-		{
-			links.map((obj) => (
-				<li class="my-1 sm:my-0 sm:mb-0 sm:mr-4">
-					<Link
-						href={obj.href}
-						class:list={["text-lg", "no-underline", "uppercase", { active: obj.href === pathname }]}
-						text={obj.text}
-					/>
-				</li>
-			))
-		}
-	</ul>
-	<ToggleTheme class="mt-2 sm:mt-0 sm:ml-auto" />
+    <div class="block sm:hidden">
+        <button id="hamburger-button" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="nav-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+
+    <div id="nav-menu" class="w-full flex-grow sm:flex sm:items-center sm:w-auto hidden sm:!flex">
+        <ul class="flex flex-col sm:flex-row sm:flex-wrap items-center mt-4 sm:mt-0 sm:mr-auto">
+            {
+                links.map((obj) => (
+                    <li class="my-1 sm:my-0 sm:mb-0 sm:mr-4">
+                        <Link
+                            href={obj.href}
+                            class:list={["text-lg", "no-underline", "uppercase", { active: obj.href === pathname }]}
+                            text={obj.text}
+                        />
+                    </li>
+                ))
+            }
+        </ul>
+        <div class="mt-4 sm:mt-0">
+            <ToggleTheme />
+        </div>
+    </div>
 </nav>
+
+<script>
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (hamburgerButton && navMenu) {
+        hamburgerButton.addEventListener('click', () => {
+            const isExpanded = hamburgerButton.getAttribute('aria-expanded') === 'true';
+            hamburgerButton.setAttribute('aria-expanded', !isExpanded);
+            navMenu.classList.toggle('hidden');
+        });
+    }
+</script>
 
 <style>
 	nav a {
