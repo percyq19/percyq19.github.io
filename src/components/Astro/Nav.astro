@@ -40,7 +40,7 @@ const pathname = new URL(Astro.request.url).pathname;
         <ul class="flex flex-col sm:flex-row sm:flex-wrap items-center sm:mr-auto">
             {
                 links.map((obj) => (
-                    <li class="sm:mr-4">
+                    <li class="px-2">
                         <Link
                             href={obj.href}
                             class:list={["text-lg", "no-underline", "uppercase", { active: obj.href === pathname }]}
