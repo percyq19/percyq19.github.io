@@ -29,6 +29,7 @@ interface Props {
   canonicalUrl?: string;
   faviconSrc?: string;
   showTitleBackground?: boolean;
+  showTitle?: boolean;
   class?: string | undefined;
 }
 
@@ -41,6 +42,7 @@ const {
   ogImage = SITE.ogImage,
   canonicalUrl = SITE.canonicalUrl,
   showTitleBackground = SITE.showTitleBackground || false,
+  showTitle = true,
   publishedTime = "",
   modifiedTime = "",
   class: className = "",
@@ -84,8 +86,8 @@ const headerLogo = typeof logo === "undefined" ? null : logo; // guard against n
   </head>
   <body class:list={[options, className]}>
     <div class="flex flex-col min-h-screen mt-0 pt-0">
-      {
-        headerLogo ? (
+      {showTitle &&
+        (headerLogo ? (
           <Title
             title={title}
             showTitleBackground={showTitleBackground}
@@ -93,8 +95,7 @@ const headerLogo = typeof logo === "undefined" ? null : logo; // guard against n
           />
         ) : (
           <Title title={title} showTitleBackground={showTitleBackground} />
-        )
-      }
+        ))}
       <Nav links={NAVIGATION} />
       <main class="flex-grow">
         <!-- content -->
