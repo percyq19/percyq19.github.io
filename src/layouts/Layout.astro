@@ -97,7 +97,7 @@ const headerLogo = typeof logo === "undefined" ? null : logo; // guard against n
           <Title title={title} showTitleBackground={showTitleBackground} />
         ))}
       <Nav links={NAVIGATION} />
-      <main class="flex-grow">
+      <main class:list={["flex-grow", { "mt-8": !showTitle }]}>
         <!-- content -->
         <slot />
       </main>
