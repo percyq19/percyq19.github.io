@@ -37,7 +37,7 @@ const pathname = new URL(Astro.request.url).pathname;
     </div>
 
     <div id="nav-menu" class="w-full sm:flex sm:items-center sm:w-auto hidden sm:!flex">
-        <ul class="flex flex-col sm:flex-row sm:flex-wrap items-center">
+        <ul class="flex flex-col sm:flex-row sm:flex-wrap items-center sm:mr-auto">
             {
                 links.map((obj) => (
                     <li class="px-2">
@@ -50,10 +50,9 @@ const pathname = new URL(Astro.request.url).pathname;
                 ))
             }
         </ul>
-    </div>
-
-    <div class="absolute top-2 right-4">
-        <ToggleTheme />
+        <div>
+            <ToggleTheme />
+        </div>
     </div>
 </nav>
 
