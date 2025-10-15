@@ -11,6 +11,7 @@ import { Image } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Tags from "@components/Astro/Tags.astro";
 import Author from "@components/Astro/Author.astro";
+import Giscus from "@components/Astro/Giscus.astro";
 
 interface Props {
   collectionName: (typeof COLLECTION_NAMES_LIST)[number];
@@ -69,5 +70,6 @@ const { Content } = await render(entry);
     <article class:list={["prose", className]}>
       <Content />
     </article>
+    <Giscus />
   </section>
 </Layout>
