@@ -64,6 +64,7 @@ export type Site = {
 	fonts: Font[];
 	showTitleBackground?: boolean;
 	socials: Socials[];
+	cusdisAppId?: string;
 };
 
 export type NavEntry = {

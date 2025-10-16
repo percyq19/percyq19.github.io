@@ -65,6 +65,8 @@ export const SITE: Site = {
 	socials: socials,
 	locale: "es-ES",
 	postsPerPage: 5,
+	// Cusdis App ID for comments. Get your own at https://cusdis.com/
+	cusdisAppId: "650be201-6c06-4caa-a36d-bc16cfe86e6c",
 	shikiConfig: {
 		// ctrl+space for theme suggestions
 		theme: "night-owl",
