@@ -36,8 +36,8 @@ const pathname = new URL(Astro.request.url).pathname;
         </button>
     </div>
 
-    <div id="nav-menu" class="absolute top-full right-0 w-full bg-theme-primary sm:relative sm:w-auto sm:top-auto sm:left-auto hidden sm:!flex">
-        <ul class="flex flex-col sm:flex-row items-end">
+    <div id="nav-menu" class="absolute top-full left-0 w-full bg-theme-primary sm:relative sm:w-auto sm:top-auto sm:left-auto hidden sm:!flex">
+        <ul class="flex flex-col sm:flex-row items-start">
             {
                 links.map((obj) => (
                     <li class="px-2">
