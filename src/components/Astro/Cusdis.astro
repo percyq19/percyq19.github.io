@@ -1,0 +1,18 @@
+---
+// Cusdis comment section component
+export interface Props {
+    pageId: string;
+    pageUrl: string;
+    pageTitle: string;
+}
+
+const { pageId, pageUrl, pageTitle } = Astro.props;
+---
+<div id="cusdis_thread"
+  data-host="https://cusdis.com"
+  data-app-id="650be201-6c06-4caa-a36d-bc16cfe86e6c"
+  data-page-id={pageId}
+  data-page-url={pageUrl}
+  data-page-title={pageTitle}
+></div>
+<script async defer src="https://cusdis.com/js/widget/cusdis.es.js"></script>
