@@ -70,6 +70,6 @@ const { Content } = await render(entry);
     <article class:list={["prose", className]}>
       <Content />
     </article>
-    <Cusdis pageId={entry.slug} pageUrl={`/${collectionName}/${entry.slug}`} pageTitle={entry.data.title} />
+    <Cusdis pageId={`${postId}`} pageUrl={`/${collectionName}/${postId}`} pageTitle={entry.data.title} />
   </section>
 </Layout>
