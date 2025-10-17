@@ -11,7 +11,7 @@ export interface Props {
 const { pageId, pageUrl, pageTitle } = Astro.props;
 const appId = SITE.cusdisAppId;
 ---
-{appId && (
+{appId ? (
     <>
         <div id="cusdis_thread"
             data-host="https://cusdis.com"
@@ -22,4 +22,9 @@ const appId = SITE.cusdisAppId;
         ></div>
         <script async defer src="https://cusdis.com/js/widget/cusdis.es.js"></script>
     </>
+) : (
+    <div class="cusdis-placeholder" style="text-align: center; padding: 2rem; border: 1px dashed; border-radius: 0.5rem; margin-top: 2rem;">
+        <p>La sección de comentarios no está disponible.</p>
+        <p>Para habilitar los comentarios, añade tu App ID de Cusdis en <code>src/alkaline.config.ts</code>.</p>
+    </div>
 )}

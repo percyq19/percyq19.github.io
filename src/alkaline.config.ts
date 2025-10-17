@@ -99,24 +99,30 @@ export const NAVIGATION: NavEntry[] = [
 		text: "Inicio",
 	},
 	{
-		href: "/economia",
-		text: "Economía",
-	},
-	{
-		href: "/investigacion",
-		text: "Investigación",
-	},
-	{
-		href: "/blog",
-		text: "blog",
-	},
-	{
-		href: "/ia",
-		text: "IA",
-	},
-	{
-		href: "/econometria",
-		text: "ECONOMETRIA",
+		href: "#",
+		text: "Publicaciones",
+		children: [
+			{
+				href: "/economia",
+				text: "Economía",
+			},
+			{
+				href: "/investigacion",
+				text: "Investigación",
+			},
+			{
+				href: "/blog",
+				text: "Blog",
+			},
+			{
+				href: "/ia",
+				text: "IA",
+			},
+			{
+				href: "/econometria",
+				text: "Econometría",
+			},
+		]
 	},
 	{
 		href: "/libros",

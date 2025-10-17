@@ -70,6 +70,7 @@ export type Site = {
 export type NavEntry = {
 	href: string;
 	text: string;
+	children?: NavEntry[];
 };
 
 export type Blog = {
