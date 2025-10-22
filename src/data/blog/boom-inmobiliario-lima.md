@@ -4,7 +4,7 @@ pubDate: "2025-10-22"
 description: "Un análisis del auge inmobiliario en Lima, Perú, examinando los datos más recientes y su profundo impacto en la economía nacional."
 author: "Percy Quispe"
 image:
-    url: "/screenshots/theme-light.png"
+    src: "/og-image.png"
     alt: "Imagen de la ciudad de Lima"
 tags: ["economía", "perú", "inmobiliaria", "mercado"]
 ---

@@ -4,7 +4,7 @@ pubDate: "2025-10-22"
 description: "Un análisis sobre la persistente problemática de la corrupción dentro de la PNP, las cifras alarmantes y los casos que manchan el uniforme."
 author: "Percy Quispe"
 image:
-    url: "/assets/redbg.png"
+    src: "../../assets/redbg.png"
     alt: "Fondo rojo con textura"
 tags: ["perú", "sociedad", "corrupción", "pnp"]
 ---
