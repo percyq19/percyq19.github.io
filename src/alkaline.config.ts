@@ -15,7 +15,7 @@ import type { Site, Author, Socials, NavEntry, Blog } from "./Types/types";
 export const socials: Socials[] = [
 	{
 		platform: "facebook",
-		url: "https://facebook.com/Percy Lcq",
+		url: "https://facebook.com/conde60",
 	},
 	{
 		platform: "twitter",

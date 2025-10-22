@@ -2,7 +2,7 @@
 title: "El Boom Inmobiliario en Lima: Crecimiento, Impacto y Desafíos"
 pubDate: "2025-10-22"
 description: "Un análisis del auge inmobiliario en Lima, Perú, examinando los datos más recientes y su profundo impacto en la economía nacional."
-author: "Percy Quiroz"
+author: "Percy Quispe"
 image:
     url: "/screenshots/theme-light.png"
     alt: "Imagen de la ciudad de Lima"
