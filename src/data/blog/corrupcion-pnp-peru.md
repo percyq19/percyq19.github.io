@@ -1,7 +1,7 @@
 ---
-title: "La Sombra de la Corrupción en la Policía Nacional del Perú"
-pubDate: "2025-10-22"
+title: "La Sombra de la Corrupción en la Policía Nacional del Perú
 description: "Un análisis sobre la persistente problemática de la corrupción dentro de la PNP, las cifras alarmantes y los casos que manchan el uniforme."
+pubDatetime: 2025-10-22
 author: "Percy Quispe"
 image:
     src: "../../assets/redbg.png"
