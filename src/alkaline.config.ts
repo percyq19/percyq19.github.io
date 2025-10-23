@@ -27,7 +27,7 @@ export const socials: Socials[] = [
 	},
 	{
 		platform: "linkedin",
-		url: "https://linkedin.com/in/Percy Quispe",
+		url: "https://linkedin.com/in/percyq19@gmail.com",
 	},
 	{
 		platform: "rss",
